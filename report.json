@@ -1,0 +1,1519 @@
+{
+  "report1": {
+    "mainHeading": "NIRANI SUGARS LIMITED",
+    "address": "SY NO. 166, KULALI CROSS, MUDHOL, BAGALKOT DIST. KARNATAKA",
+    "reportName": "CO-GEN ENERGY REPORT",
+    "fromDate": "8/20/2023  00:00",
+    "toDate": "8/20/2023  23:59:59",
+    "parameter": "ENERGY PARAMETERS",
+    "reportHeading": "MAIN GROUP NAME : CO-GEN",
+    "records": [
+      {
+        "Srno": 1,
+        "groupNo": "CO-GEN",
+        "subGroup": "SWITCH YARD",
+        "subGroup1": "CO-GEN SWITCH YARD",
+        "subGroup2": "CO-GEN SWITCH YARD",
+        "meters": "LINE 2 MAIN METER",
+        "kwhImp": 0.55,
+        "kwhExp": 1.789,
+        "kwhImport": 2.38,
+        "kwhExport": 7.192,
+        "meterSid": 1,
+        "deviceIMEI": "608A10B60AB2"
+      },
+      {
+        "Srno": 2,
+        "meters": "LINE 2 CHECK METER",
+        "kwhImp": 0.58,
+        "kwhExp": 1.795,
+        "meterSid": 2,
+        "deviceIMEI": "608A10B60AB2"
+      },
+      {
+        "Srno": 3,
+        "meters": "LINE 1 MAIN METER",
+        "kwhImp": 0.61,
+        "kwhExp": 1.801,
+        "meterSid": 3,
+        "deviceIMEI": "608A10B60AB2"
+      },
+      {
+        "Srno": 4,
+        "meters": "LINE 1 CHECK METER",
+        "kwhImp": 0.64,
+        "kwhExp": 1.807,
+        "meterSid": 4,
+        "deviceIMEI": "608A10B60AB2"
+      },
+      {
+        "Srno": 5,
+        "subGroup": "TRANSFORMERS",
+        "subGroup1": "HT TRANSFORMER",
+        "subGroup2": "CO-GEN HT DT",
+        "meters": "DT-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 16,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 6,
+        "meters": "DT-2",
+        "meterSid": 8,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 7,
+        "meters": "DT-3",
+        "meterSid": 9,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 8,
+        "meters": "DT-4",
+        "meterSid": 7,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 9,
+        "subGroup1": "LT TRANSFORMER",
+        "subGroup2": "CO-GEN LT DT",
+        "meters": "LT DT-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 6,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 10,
+        "meters": "LT DT-2",
+        "meterSid": 24,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 11,
+        "meters": "LT DT-3",
+        "meterSid": 21,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 12,
+        "meters": "DT-4 INCOMER",
+        "meterSid": 13,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 13,
+        "subGroup1": "POWER TRANSFORMER",
+        "subGroup2": "IMPORT/EXPORT",
+        "meters": "POWER TRANSFORMER-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 19,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 14,
+        "meters": "POWER TRANSFORMER-2",
+        "meterSid": 10,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 15,
+        "meters": "POWER TRANSFORMER-3",
+        "meterSid": 5,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 16,
+        "subGroup": "SPARE",
+        "subGroup1": "CO-GEN SPARE",
+        "subGroup2": "HT SPARE",
+        "meters": "SPARE VCB",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 12,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 17,
+        "subGroup2": "LT SPARE",
+        "meters": "NO NAME PLATE",
+        "meterSid": 11,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 18,
+        "meters": "NO NAME PLATE",
+        "meterSid": 15,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 19,
+        "subGroup": "APFC",
+        "subGroup1": "CO-GEN",
+        "subGroup2": "CO-GEN BIOL-1",
+        "meters": "APFC-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 22,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 20,
+        "subGroup2": "CO-GEN BOIL-3",
+        "meters": "APFC",
+        "meterSid": 18,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 21,
+        "subGroup": "BUS COUPLERS",
+        "subGroup1": "HT BUS COUPLER",
+        "subGroup2": "CO-GEN HT BUS COUPLER",
+        "meters": "B/C-5",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 1,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 22,
+        "meters": "B/C-0",
+        "meterSid": 20,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 23,
+        "subGroup1": "LT BUS COUPLER",
+        "subGroup2": "CO-GEN LT BUS COUPLER",
+        "meters": "LT B/C-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 15,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 24,
+        "meters": "LT B/C-3",
+        "meterSid": 20,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 25,
+        "subGroup": "GENERATION",
+        "subGroup1": "CO-GEN GENERATION",
+        "subGroup2": "CO-GEN GENERATION",
+        "meters": "TG-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 18,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 26,
+        "meters": "TG-2",
+        "meterSid": 11,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 27,
+        "meters": "TG-3",
+        "meterSid": 6,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 28,
+        "subGroup": "DIESEL GENERATOR",
+        "subGroup1": "HT DG",
+        "subGroup2": "CO-GEN DG",
+        "meters": "DG 1.5 MW",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 3,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 29,
+        "subGroup": "BOILERS",
+        "subGroup1": "CO-GEN BOILER",
+        "subGroup2": "BOILER-1",
+        "meters": "TG AUX-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 1,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 30,
+        "meters": "Boiler-1 MCC-8",
+        "meterSid": 2,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 31,
+        "meters": "Boiler-1 MCC-9",
+        "meterSid": 3,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 32,
+        "meters": "Boiler-1 MCC-6",
+        "meterSid": 5,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 33,
+        "meters": "Boiler-1 New MCC-4",
+        "meterSid": 7,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 34,
+        "meters": "Boiler-1 MCC-4 & 5",
+        "meterSid": 8,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 35,
+        "meters": "Boiler-1 MCC-7",
+        "meterSid": 9,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 36,
+        "meters": "Boiler-1 ESP",
+        "meterSid": 4,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 37,
+        "subGroup2": "BOILER-2",
+        "meters": "Boiler-2 MCC-5A",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 29,
+        "deviceIMEI": " 608A10B6056D"
+      },
+      {
+        "Srno": 38,
+        "meters": "Mill MCC-15A",
+        "meterSid": 31,
+        "deviceIMEI": " 608A10B6056D"
+      },
+      {
+        "Srno": 39,
+        "meters": "Boiler-2 MCC-7",
+        "meterSid": 32,
+        "deviceIMEI": " 608A10B6056D"
+      },
+      {
+        "Srno": 40,
+        "meters": "TG-2 Aux Motor Control Center",
+        "meterSid": 1,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 41,
+        "meters": "Boiler-2 New MCC",
+        "meterSid": 24,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 42,
+        "meters": "Boiler-2 MCC-9",
+        "meterSid": 25,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 43,
+        "meters": "Boiler-2 MCC-8",
+        "meterSid": 26,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 44,
+        "meters": "Boiler-2 ESP",
+        "meterSid": 5,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 45,
+        "subGroup2": "BOILER-3",
+        "meters": "TG-3 Aux Motor Control Center",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 2,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 46,
+        "meters": "Boiler-3 ESP",
+        "meterSid": 3,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 47,
+        "meters": "Boiler-3 FWP-1",
+        "meterSid": 7,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 48,
+        "meters": "TG-3 Aux MCC",
+        "meterSid": 8,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 49,
+        "meters": "Boiler MCC-2",
+        "meterSid": 9,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 50,
+        "meters": "Boiler -3 FWP-3",
+        "meterSid": 12,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 51,
+        "meters": "Boiler MCC-1",
+        "meterSid": 14,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 52,
+        "subGroup": "COOLING TOWER",
+        "subGroup1": "COOLING TOWER",
+        "subGroup2": "CO-GEN COOLING TOWER",
+        "meters": "MCC-5, 6 & 7",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 6,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 53,
+        "meters": "Waste Water Pond",
+        "meterSid": 10,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 54,
+        "meters": "Cooling Tower",
+        "meterSid": 16,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 55,
+        "meters": "RO Plant",
+        "meterSid": 17,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 56,
+        "meters": "Cooling Tower MCC B-11A",
+        "meterSid": 22,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 57,
+        "subGroup": "ASH HANDLING",
+        "subGroup1": "FUEL & ASH HANDLING",
+        "subGroup2": "CO-GEN ASH HANDLING",
+        "meters": "Boiler-1 Bagass MCC",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 4,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 58,
+        "meters": "Ash Handling",
+        "meterSid": 19,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 59,
+        "subGroup": "NEW MILL",
+        "subGroup1": "NEW SUGAR MILL",
+        "subGroup2": "MILL DRIVE",
+        "meters": "New Mill",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 2,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 60,
+        "meters": "New Mill DT-4",
+        "meterSid": 15,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 61,
+        "subGroup": "OLD MILL",
+        "subGroup1": "FIBRIZER",
+        "subGroup2": "FIBRIZER- 1 & 2",
+        "meters": "Fibrizer ",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 4,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 62,
+        "subGroup1": "MILL DRIVE",
+        "subGroup2": "MILL DRIVE 0",
+        "meters": "Old Zero Mill",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 17,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 63,
+        "subGroup2": "MILL DRIVE-1&2",
+        "meters": "Old Mill-1 & 2",
+        "meterSid": 13,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 64,
+        "subGroup2": "MILL DRIVE-3&4",
+        "meters": "Old Mill-3 & 4",
+        "meterSid": 14,
+        "deviceIMEI": "608A10B607B5"
+      },
+      {
+        "Srno": 65,
+        "subGroup1": "BOILING HOUSE",
+        "subGroup2": "OLD BOILING HOUSE",
+        "meters": "Old Bagass Handling  MCC-13",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 11,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 66,
+        "meters": "Old Sugar MCC-15",
+        "meterSid": 12,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 67,
+        "meters": "Old Bagass Handling  MCC-12A & 12B",
+        "meterSid": 16,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 68,
+        "meters": "Old KCP-1 & 2",
+        "meterSid": 17,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 69,
+        "meters": "Old Bagass Handling Clarification MCC-10",
+        "meterSid": 18,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 70,
+        "meters": "Old Bagass Handling Clarification MCC-11 & 14",
+        "meterSid": 19,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 71,
+        "meters": "Old Bagass Handling MCC-11A",
+        "meterSid": 26,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 72,
+        "meters": "Old Bagass Handling MCC-10A",
+        "meterSid": 27,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 73,
+        "meters": "New Injection-5 & Old Injection-5",
+        "meterSid": 27,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 74,
+        "subGroup1": "CENTRIFUGAL M/C",
+        "subGroup2": "OLD MILL CENTRIFUGAL M/C",
+        "meters": "Old Centrifugal \"A\" M/C NHEC",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 10,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 75,
+        "meters": "B & C Machine",
+        "meterSid": 13,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 76,
+        "meters": "13A + 14A MCC",
+        "meterSid": 23,
+        "deviceIMEI": "608A10B605E7"
+      },
+      {
+        "Srno": 77,
+        "subGroup1": "OLD MILL MCC",
+        "subGroup2": "MILL MCC",
+        "meters": "Old Mill MCC-1 & DC Drive Aux Suply",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 20,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 78,
+        "meters": "Old Mill MCC-3",
+        "meterSid": 21,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 79,
+        "meters": "Old Mill New MCC-1A",
+        "meterSid": 25,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 80,
+        "meters": "Boiler-2 MCC-4 & 6",
+        "meterSid": 30,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 81,
+        "subGroup1": "LEVELLER",
+        "subGroup2": "OLD MILL LEVELLER",
+        "meters": "Old Mill Leveler-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 23,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 82,
+        "meters": "Old Mill Leveler-2",
+        "meterSid": 14,
+        "deviceIMEI": "608A10B6056D"
+      },
+      {
+        "Srno": 83,
+        "subGroup1": "CHOPPER",
+        "subGroup2": "OLD MILL CHOPPER",
+        "meters": "Old Mill Chopper",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 28,
+        "deviceIMEI": "608A10B6056D"
+      }
+    ]
+  },
+  "report2": {
+    "mainHeading": "NIRANI SUGARS LIMITED",
+    "address": "SY NO. 166, KULALI CROSS, MUDHOL, BAGALKOT DIST. KARNATAKA",
+    "reportName": "SUGAR MILL ENERGY REPORT",
+    "fromDate": "8/20/2023  00:00:00",
+    "toDate": "8/20/2023  23:59",
+    "parameter": "ENERGY PARAMETERS",
+    "reportHeading": "MAIN GROUP NAME : SUGAR MILL",
+    "records": [
+       
+      {
+        "Srno": 84,
+        "groupNo": "SUGAR MILL",
+        "subGroup": "MILL INCOMER",
+        "subGroup1": "MILL MAIN INCOMER",
+        "subGroup2": "SUGAR MILL INCOMER",
+        "meters": "INCOMER-DIR NO.4",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 1,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 85,
+        "meters": "INCOMER-02",
+        "meterSid": 6,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 86,
+        "meters": "INCOMER-01",
+        "meterSid": 16,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 87,
+        "meters": "INCOMER MILL4",
+        "meterSid": 2,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 88,
+        "meters": "11kV MAIN INCOMER",
+        "meterSid": 18,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 89,
+        "meters": "INCOMER 2 &3",
+        "meterSid": 8,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 90,
+        "subGroup": "MILL TRANSFORMER",
+        "subGroup1": "SUGAR MILL TRANSFORMER",
+        "subGroup2": "SUGAR MILL TRANSFORMER",
+        "meters": "DT-3",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 16,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 91,
+        "meters": "DT-03",
+        "meterSid": 14,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 92,
+        "meters": "DT-02",
+        "meterSid": 22,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 93,
+        "meters": "DT-03",
+        "meterSid": 23,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 94,
+        "meters": "1ST MILL TRF",
+        "meterSid": 16,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 95,
+        "subGroup": "MILL SPARE",
+        "subGroup1": "MILL SPARE FEEDERS",
+        "subGroup2": "SUGAR MILL SPARE",
+        "meters": "Q9 SPARE-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 12,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 96,
+        "meters": "Q2 SPARE-2",
+        "meterSid": 17,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 97,
+        "subGroup": "MILL APFC",
+        "subGroup1": "SUGAR MILL APFC",
+        "subGroup2": "MILL APFC",
+        "meters": "APFC-03",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 13,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 98,
+        "meters": "APFC"
+      },
+      {
+        "Srno": 99,
+        "subGroup": "MILL BUS COUPLERS",
+        "subGroup1": "MILL BUS COUPLER",
+        "subGroup2": "SUGAR MILL BUS COUPLER",
+        "meters": "BUS COUPLER",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 1,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 100,
+        "meters": "BUS COUPLER-01",
+        "meterSid": 11,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 101,
+        "subGroup": "SUGAR MILL PANELS",
+        "subGroup1": "MILL PCC (DT3 & DT4)",
+        "subGroup2": " PCC (DT3 & DT4)",
+        "meters": "MCC-16 NEW C/F",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 2,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 102,
+        "meters": "MCC-13 OLD C/F",
+        "meterSid": 3,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 103,
+        "meters": "MCC-8CONTI M/C",
+        "meterSid": 4,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 104,
+        "meters": "NEW C/F SPECIAL B",
+        "meterSid": 5,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 105,
+        "meters": "16A 110KW M/C",
+        "meterSid": 6,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 106,
+        "meters": "AC DRIVE + NHEC",
+        "meterSid": 7,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 107,
+        "meters": "CJP VFD",
+        "meterSid": 8,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 108,
+        "meters": "NEW C/F SPECIAL B",
+        "meterSid": 9,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 109,
+        "meters": "MCC-4",
+        "meterSid": 10,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 110,
+        "meters": "OLD KCP 3 & 7",
+        "meterSid": 11,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 111,
+        "meters": "NEW KCP NO.04",
+        "meterSid": 12,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 112,
+        "meters": "F6 EVAPORATOR",
+        "meterSid": 14,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 113,
+        "meters": "MCC-01 10C",
+        "meterSid": 15,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 114,
+        "meters": "MCC-5",
+        "meterSid": 17,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 115,
+        "meters": "NEW KCP M/C 2&3",
+        "meterSid": 18,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 116,
+        "meters": "MCC-4 F12",
+        "meterSid": 19,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 117,
+        "meters": "MCC-OLD C/F",
+        "meterSid": 20,
+        "deviceIMEI": "608A10B6032B"
+      },
+      {
+        "Srno": 118,
+        "subGroup1": "MILL PCC (DT1 & DT2)",
+        "subGroup2": "PCC (DT1 & DT2)",
+        "meters": "NEW CONTI M/C 1,2,3,4",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 2,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 119,
+        "meters": "INJECTION MOTOR NEW",
+        "meterSid": 3,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 120,
+        "meters": "NEW CONTI M/C5-5,6,7,8",
+        "meterSid": 4,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 121,
+        "meters": "RJP 2,3 COM 132KW",
+        "meterSid": 5,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 122,
+        "meters": "LIME & SO2 STATION",
+        "meterSid": 7,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 123,
+        "meters": "NEW KCP M/C 19,20",
+        "meterSid": 8,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 124,
+        "meters": "SUGAR HANDLING SYSTEM",
+        "meterSid": 9,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 125,
+        "meters": "E SET CJP 1,2,3,4",
+        "meterSid": 10,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 126,
+        "meters": "VFD-02 800A",
+        "meterSid": 12,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 127,
+        "meters": "VIJAY VISHAL PALACE",
+        "meterSid": 13,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 128,
+        "meters": "NEW NHEC",
+        "meterSid": 14,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 129,
+        "meters": "ADMIN OFFICE",
+        "meterSid": 15,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 130,
+        "meters": "VFD-03",
+        "meterSid": 17,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 131,
+        "meters": "LEVELLER-02",
+        "meterSid": 18,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 132,
+        "meters": "LEVELLER-01",
+        "meterSid": 19,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 133,
+        "meters": "E-BIOLER NEW",
+        "meterSid": 20,
+        "deviceIMEI": "608A10B60585"
+      },
+      {
+        "Srno": 134,
+        "subGroup1": "SUGAR MILL DRIVE",
+        "subGroup2": "MILL DRIVE",
+        "meters": "AC VFD",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 1,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 135,
+        "meters": "GRPF 5TH MILL-1",
+        "meterSid": 3,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 136,
+        "meters": "GRPF 5TH MILL-2",
+        "meterSid": 4,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 137,
+        "meters": "TRPF 5TH MILL-1",
+        "meterSid": 5,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 138,
+        "meters": "TRPF 5TH MILL-2",
+        "meterSid": 6,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 139,
+        "meters": "DC MOTOR-03",
+        "meterSid": 7,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 140,
+        "meters": "DC MOTOR-02",
+        "meterSid": 9,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 141,
+        "meters": "1ST MILL MOTOR",
+        "meterSid": 10,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 142,
+        "meters": "MCC-01",
+        "meterSid": 11,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 143,
+        "meters": "CHOPPER",
+        "meterSid": 24,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "subGroup1": "HT(RIVER+MOLASIS)",
+        "subGroup2": "RIVER+MOLASIS",
+        "meters": "RIVER + COLONY",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 13,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 145,
+        "meters": "04 & 05 MILL",
+        "meterSid": 15,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 146,
+        "meters": "FIBRIZER MOTOR-02",
+        "meterSid": 19,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 147,
+        "meters": "FIBRIZER MOTOR-01",
+        "meterSid": 20,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 148,
+        "meters": "2 &3 MILL",
+        "meterSid": 21,
+        "deviceIMEI": "608A10B603A8"
+      },
+      {
+        "Srno": 149,
+        "subGroup1": "OLD SUGAR MILL",
+        "subGroup2": "OLD SUGAR MILL SIDE",
+        "meters": "MILL-V GRPF",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 1,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 150,
+        "meters": "MILL-1 GRPF",
+        "meterSid": 2,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 151,
+        "meters": "MILL-1 GRPF",
+        "meterSid": 3,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 152,
+        "meters": "MILL-V MAIN MOTOR",
+        "meterSid": 4,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 153,
+        "meters": "MILL-4 ",
+        "meterSid": 5,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 154,
+        "meters": "MILL-3",
+        "meterSid": 6,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 155,
+        "meters": "MILL-2",
+        "meterSid": 7,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 156,
+        "meters": "FIBRIZER-2",
+        "meterSid": 8,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 157,
+        "meters": "FIBRIZER-1",
+        "meterSid": 9,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 158,
+        "meters": "KICKER",
+        "meterSid": 10,
+        "deviceIMEI": "608A10B607A7"
+      },
+      {
+        "Srno": 159,
+        "meters": "COOLING TOWER SUGAR MILL",
+        "meterSid": 11,
+        "deviceIMEI": "608A10B607A7"
+      }
+    ]
+  },
+  "report3": {
+    "mainHeading": "NIRANI SUGARS LIMITED",
+    "address": "SY NO. 166, KULALI CROSS, MUDHOL, BAGALKOT DIST. KARNATAKA",
+    "reportName": "DISTELLARY ENERGY REPORT",
+    "fromDate": "8/20/2023  00:00",
+    "toDate": "8/20/2023  23:59",
+    "parameter": "ENERGY PARAMETERS",
+    "reportHeading": "MAIN GROUP NAME : TRUEALT DISTELLARY",
+    "records": [
+      
+      {
+        "Srno": 159,
+        "groupNo": "TRUEALT DISTELLARY",
+        "subGroup": "DISTELLARY INCOMERS",
+        "subGroup1": "DIST INCOMERS",
+        "subGroup2": "DIST INCOMER",
+        "meters": "INCOMER-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 1,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 160,
+        "meters": "INCOMER-2",
+        "meterSid": 16,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 161,
+        "meters": "INCOMER -3",
+        "meterSid": 21,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 162,
+        "meters": "SUGAR PLANT INCOMER",
+        "meterSid": 22,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 163,
+        "subGroup2": "SUGAR MILL I/C",
+        "meters": "SMWTG INCOMER",
+        "meterSid": 20,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 164,
+        "subGroup2": "GRID I/C",
+        "meters": "GRID INCOMER",
+        "meterSid": 21,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 165,
+        "subGroup": "DIST TRANSFORMERS",
+        "subGroup1": "HT TRANSFORMER",
+        "subGroup2": "DIST- HT DT",
+        "meters": "DT-1 OUTGOING",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 26,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 166,
+        "meters": "DT-2 OUTGOING",
+        "meterSid": 25,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 167,
+        "meters": "DT-3 OUTGOING",
+        "meterSid": 24,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 168,
+        "meters": "SPARE OUTGOING",
+        "meterSid": 27,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 169,
+        "subGroup1": "LT TRANSFORMER",
+        "subGroup2": "DT-1 TRANSFORMER",
+        "meters": "TRANSORMER-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 5,
+        "deviceIMEI": " F8F005AA9F43"
+      },
+      {
+        "Srno": 170,
+        "subGroup2": "DT-2 TRANSFORMER",
+        "meters": "TRANSORMER-2",
+        "meterSid": 14,
+        "deviceIMEI": " F8F005AA9F43"
+      },
+      {
+        "Srno": 171,
+        "subGroup2": "3 MVA DIST TRANSFORMER",
+        "meters": "3MVA TRANS-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 22,
+        "deviceIMEI": " F8F005AA9F43"
+      },
+      {
+        "Srno": 172,
+        "meters": "3MVA TRANS-2",
+        "meterSid": 23,
+        "deviceIMEI": " F8F005AA9F43"
+      },
+      {
+        "Srno": 173,
+        "subGroup": "DIST SPARE",
+        "subGroup1": "DIST SPARE",
+        "subGroup2": "HT SPARE",
+        "meters": "SPARE VCB",
+        "kwhImport": 0,
+        "kwhExport": 0
+      },
+      {
+        "Srno": 174,
+        "subGroup": "DIST APFC",
+        "subGroup1": "DISTELLRY APFC",
+        "subGroup2": "DIST APFC",
+        "meters": "APFC1 DIST",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 8,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 175,
+        "meters": "APFC2 DIST",
+        "meterSid": 11,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 176,
+        "meters": "APFC3 DIST",
+        "meterSid": 20,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 177,
+        "meters": "CAPACITOR PANEL",
+        "meterSid": 6,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 178,
+        "subGroup": "DIST GENERATION",
+        "subGroup1": "DIST T.GENERATION",
+        "subGroup2": "DIST GEN",
+        "meters": "TG AUX-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 3,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 179,
+        "meters": "TG-2 INCOMER",
+        "meterSid": 23,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 180,
+        "subGroup": "DISTELLARY DIESEL GENERATOR",
+        "subGroup1": "DIST DG",
+        "subGroup2": "DIST DG",
+        "meters": "DG I/C",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 19,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 181,
+        "subGroup": "DIST 510 KLPD",
+        "subGroup1": "510 KLPD",
+        "subGroup2": "510 DT-1 ",
+        "meters": "FERMENTATION MCC1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 2,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 182,
+        "meters": "F5 1250 ACB-1",
+        "meterSid": 3,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 183,
+        "meters": "F7 2500 ACB-1",
+        "meterSid": 4,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 184,
+        "meters": "DIST+MSDH MCC-3",
+        "meterSid": 5,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 185,
+        "meters": "F10 2500 ACB-2",
+        "meterSid": 6,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 186,
+        "meters": "FERMENTATION COOLING MCC-2",
+        "meterSid": 7,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 187,
+        "meters": "DIST+MSDH MCC-4",
+        "meterSid": 9,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 188,
+        "subGroup2": "510 DT-2 ",
+        "meters": "PCTP MCC-8",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 10,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 189,
+        "meters": "EVOPORATION MCC5",
+        "meterSid": 12,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 190,
+        "meters": "CO2",
+        "meterSid": 13,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 191,
+        "meters": "F25 2500 ACB-3",
+        "meterSid": 14,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 192,
+        "meters": "F26 1250 ACB-2",
+        "meterSid": 15,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 193,
+        "subGroup2": "510 DT-3",
+        "meters": "UTILITY MCC-6",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 17,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 194,
+        "meters": "WTP MCC-8",
+        "meterSid": 18,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 195,
+        "meters": "UTILITY+STORAGE MCC-7",
+        "meterSid": 19,
+        "deviceIMEI": "608A10B60315"
+      },
+      {
+        "Srno": 196,
+        "subGroup": "DIST 120 KLPD",
+        "subGroup1": "120 KLPD",
+        "subGroup2": "120  DT-1",
+        "meters": "ASH",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 1,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 197,
+        "meters": "ID-2",
+        "meterSid": 2,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 198,
+        "meters": "DM PLANT",
+        "meterSid": 4,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 199,
+        "meters": "BOILER I/C",
+        "meterSid": 7,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 200,
+        "meters": "FERMENTATION",
+        "meterSid": 8,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 201,
+        "meters": "CO2-1",
+        "meterSid": 9,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 202,
+        "subGroup2": "120 DT-2",
+        "meters": "ESP",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 11,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 203,
+        "meters": "BY COMPOST ETP",
+        "meterSid": 13,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 204,
+        "meters": "O/G TO SUGAR ETP",
+        "meterSid": 15,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 205,
+        "meters": "30KL DISTILLATION",
+        "meterSid": 16,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 206,
+        "meters": "90 DISTILATION",
+        "meterSid": 17,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 207,
+        "meters": "90 EVAPORATION",
+        "meterSid": 18,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 208,
+        "subGroup": "DIST LIGHTING LOAD",
+        "subGroup1": "DISTELLARY LIGHTING",
+        "subGroup2": "DIST LIGHTING",
+        "meters": "LIGHTING-1",
+        "kwhImport": 0,
+        "kwhExport": 0,
+        "meterSid": 10,
+        "deviceIMEI": "F8F005AA9F43"
+      },
+      {
+        "Srno": 209,
+        "meters": "LIGHTING-2",
+        "meterSid": 12,
+        "deviceIMEI": "F8F005AA9F43"
+      }
+    ]
+  }
+}
