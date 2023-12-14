@@ -1,5 +1,5 @@
 const express = require('express');
-const { getDummySheet, addSheet,getplantDetail,createExcelSheet } = require('../controller/sheetController');
+const { getDummySheet, addSheet,getplantDetail,createExcelSheet, abc, } = require('../controller/sheetController');
 
 const Router   =  express.Router();
 
@@ -9,7 +9,7 @@ Router.route('/plant/all').get(getplantDetail)
 
 
 //task after exams
-Router.route('/getSheet').get(createExcelSheet)
+Router.route('/getSheet').get(abc )
 // Router.route('').get(getDummySheet)
 
 
