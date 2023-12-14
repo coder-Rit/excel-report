@@ -583,3 +583,342 @@ exports.getplantDetail = catchAsynch(async (req, res, next) => {
     data,
   });
 });
+
+
+
+const fs = require('fs');
+const ExcelJS = require('exceljs');
+
+const data =  [
+  {
+      "id": "n1701797057997",
+      "text": "Power Vision1",
+      "children": [
+          {
+              "id": "n1701797066456",
+              "text": "Power Visoion G1",
+              "children": [
+                  {
+                      "id": "n1701797076335",
+                      "text": "Grid Incomer",
+                      "children": [
+                          {
+                              "id": "n1701797085464",
+                              "text": "Main I/C",
+                              "children": [
+                                  {
+                                      "id": "860987057798875_1",
+                                      "text": "TG Meter",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  }
+                              ],
+                              "depth": 3,
+                              "maxChildDepth": 1
+                          }
+                      ],
+                      "depth": 2,
+                      "maxChildDepth": 2
+                  }
+              ],
+              "depth": 1,
+              "maxChildDepth": 3
+          },
+          {
+              "id": "n1701797140175",
+              "text": "Power Visoion G2",
+              "children": [
+                  {
+                      "id": "n1701797160551",
+                      "text": "Generation",
+                      "children": [
+                          {
+                              "id": "n1701797169495",
+                              "text": "Generator",
+                              "children": [
+                                  {
+                                      "id": "860987057798875_2",
+                                      "text": "GRID",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  }
+                              ],
+                              "depth": 3,
+                              "maxChildDepth": 1
+                          }
+                      ],
+                      "depth": 2,
+                      "maxChildDepth": 2
+                  }
+              ],
+              "depth": 1,
+              "maxChildDepth": 3
+          },
+          {
+              "id": "n1701797221024",
+              "text": "Power Vision G3",
+              "children": [
+                  {
+                      "id": "n1701797230112",
+                      "text": "Bus Coupler",
+                      "children": [
+                          {
+                              "id": "n1701797235951",
+                              "text": "B/C",
+                              "children": [
+                                  {
+                                      "id": "860987057798875_3",
+                                      "text": "METER 3",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  },
+                                  {
+                                      "id": "860987057798875_7",
+                                      "text": "METER 7",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  }
+                              ],
+                              "depth": 3,
+                              "maxChildDepth": 1
+                          }
+                      ],
+                      "depth": 2,
+                      "maxChildDepth": 2
+                  }
+              ],
+              "depth": 1,
+              "maxChildDepth": 3
+          }
+      ],
+      "depth": 0,
+      "maxChildDepth": 4
+  },
+  {
+      "id": "n1701797302944",
+      "text": "Power Vision2",
+      "children": [
+          {
+              "id": "n1701797315216",
+              "text": "Power Vision GA1",
+              "children": [
+                  {
+                      "id": "n1701797321575",
+                      "text": "Auxillary Consump",
+                      "children": [
+                          {
+                              "id": "n1701797329471",
+                              "text": "Aux",
+                              "children": [
+                                  {
+                                      "id": "860987057798875_4",
+                                      "text": "METER 4",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  },
+                                  {
+                                      "id": "860987057798875_5",
+                                      "text": "METER 5",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  }
+                              ],
+                              "depth": 3,
+                              "maxChildDepth": 1
+                          }
+                      ],
+                      "depth": 2,
+                      "maxChildDepth": 2
+                  }
+              ],
+              "depth": 1,
+              "maxChildDepth": 3
+          },
+          {
+              "id": "n1701797386122",
+              "text": "Power Vision GA3",
+              "children": [
+                  {
+                      "id": "n1701797428327",
+                      "text": "Sinter 1",
+                      "children": [
+                          {
+                              "id": "n1701797438271",
+                              "text": "Sinter1 &3",
+                              "children": [
+                                  {
+                                      "id": "860987057798875_10",
+                                      "text": "METER 10",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  }
+                              ],
+                              "depth": 3,
+                              "maxChildDepth": 1
+                          }
+                      ],
+                      "depth": 2,
+                      "maxChildDepth": 2
+                  }
+              ],
+              "depth": 1,
+              "maxChildDepth": 3
+          },
+          {
+              "id": "n1701797379424",
+              "text": "Power Vision GA2",
+              "children": [
+                  {
+                      "id": "n1701797398295",
+                      "text": "HT Motor",
+                      "children": [
+                          {
+                              "id": "n1701797406703",
+                              "text": "Sinter",
+                              "children": [
+                                  {
+                                      "id": "860987057798875_6",
+                                      "text": "METER 6",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  },
+                                  {
+                                      "id": "860987057798875_8",
+                                      "text": "METER 8",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  },
+                                  {
+                                      "id": "860987057798875_9",
+                                      "text": "METER 9",
+                                      "type": "sys",
+                                      "children": [],
+                                      "depth": 4,
+                                      "maxChildDepth": 0
+                                  }
+                              ],
+                              "depth": 3,
+                              "maxChildDepth": 1
+                          }
+                      ],
+                      "depth": 2,
+                      "maxChildDepth": 2
+                  }
+              ],
+              "depth": 1,
+              "maxChildDepth": 3
+          }
+      ],
+      "depth": 0,
+      "maxChildDepth": 4
+  }
+]
+
+const filename = "output.xlsx"
+
+exports.createExcelSheet = async () => {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Sheet 1');
+
+    let currentRow = 2;
+
+    const processItem = (item, currentColumn) => {
+        const cell = worksheet.getCell(currentRow, currentColumn);
+
+        console.log(item, currentColumn, 669)
+
+        if (item.maxChildDepth == 0) {
+            if (!cell.isMerged) {
+                cell.value = item.text;
+            } else {
+                currentRow++;
+                cell.value = item.text;
+
+            }
+
+        } else  if (item.maxChildDepth > 0) {
+            cell.value = item.text;
+            if (!cell.isMerged) {
+                worksheet.mergeCells(currentRow, currentColumn, currentRow + item.maxChildDepth-1, currentColumn);
+            } else {
+                worksheet.mergeCells(currentRow + 1, currentColumn, (currentRow) + item.maxChildDepth-1, currentColumn);
+
+            }
+
+            currentRow=currentRow+item.maxChildDepth;
+        }
+
+        if (item.children && item.children.length > 0) {
+            currentRow=2;
+            for (const child of item.children) {
+                processItem(child, currentColumn + 1);
+                currentRow = Math.max(currentRow, worksheet.rowCount);
+            }
+        }
+    };
+
+    const addData = (text, depth, maxChildDepth) => {
+        // console.log(text, depth,684)
+        const cell = worksheet.getCell(currentRow, depth);
+        cell.value = text;
+        // console.log(currentRow,687)
+
+        if (maxChildDepth > 1 && !cell.isMerged) {
+            const mergeStartRow = currentRow;
+            const mergeEndRow = currentRow + maxChildDepth - 1;
+            const mergeStartColumn = depth;
+            const mergeEndColumn = depth;
+
+            worksheet.mergeCells(mergeStartRow, mergeStartColumn, mergeEndRow, mergeEndColumn);
+        }
+    };
+
+    // Find maxDepth only once
+    const maxDepth = Math.max(...data.map((item) => item.maxChildDepth, 0));
+
+    // Add headers based on maxDepth
+    for (let i = 0; i <= maxDepth; i++) {
+        worksheet.getCell(1, i + 1).value = `Depth ${i + 1}`;
+        worksheet.getCell(1, i + 1).fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: 'FFFFCC00' }, // Light yellow fill
+        };
+    }
+
+    for (const item of data) {
+        addData(item.text, 1, item.maxChildDepth); // Start from column 1 for each top-level item
+
+        if (item.children && item.children.length > 0) {
+            // currentRow=2;
+            for (const child of item.children) {
+                processItem(child, 2);
+                // currentRow = Math.max(currentRow, worksheet.rowCount);
+            }
+        }
+
+        // currentRow++;
+    }
+
+    await workbook.xlsx.writeFile(filename);
+    console.log(`Excel sheet created and saved as ${filename}`);
+};
+
