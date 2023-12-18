@@ -1,5 +1,7 @@
 const ExcelJS = require("exceljs");
 const analogdatas = require("../analogdatas.json");
+const fs = require('fs');
+const path = require('path');
 
 const headerFill = {
   type: "pattern",
@@ -320,6 +322,7 @@ const maxDepth = findMaxDepth();
 const workbook = new ExcelJS.Workbook();
 const worksheet = workbook.addWorksheet("Sheet 1");
 const filename = "output.xlsx"
+const tableContentStart =10
 
 const fillCell = (address, value) => {
   const cell = worksheet.getCell(address); //get cell using address
@@ -352,7 +355,6 @@ const MapParamsForDeviceId = (
     if (element.t === "grp") {
       return;
     }
-    console.log(element);
     currentRow = start_row + I;
 
     const deviceFreq = deviceFreqList.filter((data) => {
@@ -396,16 +398,12 @@ const MapParamsForDeviceId = (
 
   //merging cells
   cellAddress = ColumnList[currentCol+2] + comingRow;
-  console.log(`${cellAddress}:${ColumnList[currentCol+2] + currentRow}`);
   worksheet.mergeCells([`${cellAddress}:${ColumnList[currentCol+2] + currentRow}`]);
   cellAddress = ColumnList[currentCol+4] + comingRow;
-  console.log(`${cellAddress}:${ColumnList[currentCol+2] + currentRow}`);
   worksheet.mergeCells([`${cellAddress}:${ColumnList[currentCol+4] + currentRow}`]);
   cellAddress = ColumnList[currentCol+6] + comingRow;
-  console.log(`${cellAddress}:${ColumnList[currentCol+2] + currentRow}`);
   worksheet.mergeCells([`${cellAddress}:${ColumnList[currentCol+6] + currentRow}`]);
   cellAddress = ColumnList[currentCol+8] + comingRow;
-  console.log(`${cellAddress}:${ColumnList[currentCol+2] + currentRow}`);
   worksheet.mergeCells([`${cellAddress}:${ColumnList[currentCol+8] + currentRow}`]);
 
 
@@ -454,82 +452,38 @@ const FreqAndSum = () => {
     }
   }
 };
-
-// // maping grups , subgruops and meter in excel sheet
-// const mapGroup_subGroup =()=>{
-//   let rowOffset = 2;
-//   let maxRow = 0;
-
-//   //calling for each child indivisualy
-//   const assignCell = (Child, level) => {
-//     level++;
-//     let currentRow = rowOffset;
-  
-//     if (maxRow < currentRow) {
-//       maxRow = currentRow;
-//     }
-//     if (level === 1 && Child.t === "d") {
-//       MapParamsForDeviceId(map, [Child], maxDepth , currentRow, worksheet);
-//     }
-  
-//     // console.log(Child.text , level);
-//     let cellAddress;
-//     if (Child.t === "d") {
-//       rowOffset++;
-//       cellAddress = ColumnList[maxDepth] + currentRow;
-//     }
-    
-//     if (Child.t === "grp") {
-//       cellAddress = ColumnList[level] + currentRow;
-//       if (Child.children === null||Child.children.length ===0) {
-//         //call for null
-//        const final = ColumnList[maxDepth] + currentRow;
-//        // call for null
-//        fillCell(final,"NMF")
-//        rowOffset++;
-//        return;
-//       }
-//     }
-
-    
-    
-//     fillCell(cellAddress,Child.text)
    
 
-//     if (Child.children == null) {
-//       return;
-//     } else {
-//       if (Child.children.length !== 0) {
-//         MapParamsForDeviceId(
-//           map,
-//           Child.children,
-//           maxDepth ,
-//           currentRow,
-//           worksheet
-//         );
-//       }
-//     } 
+const logoMaping =()=>{
+  const galanfi=path.resolve(__dirname ,"../images/galanfi.png" )
+  const murgesh=path.resolve(__dirname ,"../images/murgesh.png" )
+   
+  const galanfiBase64 = fs.readFileSync(galanfi, { encoding: 'base64' });
+  const murgeshBase64 = fs.readFileSync(murgesh, { encoding: 'base64' });
 
-    
+  const galanfiId = workbook.addImage({
+    base64: galanfiBase64,
+    extension: 'png',
+  });
+  const murgeshId = workbook.addImage({
+    base64: murgeshBase64,
+    extension: 'png',
+  });
   
-//     for (let i = 0; i < Child.children.length; i++) {
-//       assignCell(Child.children[i], level);
-//     }
-//     cellAddress = ColumnList[level] + currentRow;
-//     worksheet.mergeCells([`${cellAddress}:${ColumnList[level] + maxRow}`]);
-//   };
+  worksheet.addImage(galanfiId, {
+    tl: { col: 7, row: 2 },
+    ext: { width: 372.28, height: 60.47 },
+  });
+  worksheet.addImage(murgeshId, {
+    tl: { col: 1, row: 1 },
+    ext: { width: 134.55, height:123.21 },
+  });
+}
 
-//   //caller
-//   for (let I = 0; I < data.length; I++) {
-//     assignCell(data[I], 0);
-//   }
-
-// }
-
-const createExcelSheet =   () => {
+const createExcelSheet =   (tableContentStart) => {
    
   // row offset of groups or pinters
-  let groupOffset_row = 2; // start without header
+  let groupOffset_row = tableContentStart; // start without header
   let maxRow = 0;
 
   // recursive fuction for filling from right
@@ -575,7 +529,7 @@ const createExcelSheet =   () => {
 
   // calling the fuction for each group
   for (let index = 0; index < data.length; index++) {
-    fillFromRight(data[index], 0, groupOffset_row);
+    fillFromRight(data[index], 0);
   }
 
     
@@ -583,7 +537,7 @@ const createExcelSheet =   () => {
 
 
 // setting dynamic header groups and static header for paramter headers 
-const DynamicHeaderSetup = () => {
+const DynamicHeaderSetup = (headerStart) => {
   let cellAddress = "";
 
   // helper func
@@ -601,7 +555,7 @@ const DynamicHeaderSetup = () => {
 
   //for groups
   for (let i = 1; i <= maxDepth; i++) {
-    cellAddress = ColumnList[i] + 1;
+    cellAddress = ColumnList[i] + headerStart;
     const cell = worksheet.getCell(cellAddress);
     worksheet.getColumn(ColumnList[i]).width = 20; //get cell using address
     cell.fill = headerFill;
@@ -633,7 +587,7 @@ const DynamicHeaderSetup = () => {
   ];
   for (let I = 0; I < parameterList.length; I++) {
     const element = parameterList[I];
-    cellAddress = ColumnList[maxDepth + I + 1] + 1;
+    cellAddress = ColumnList[maxDepth + I + 1] + headerStart;
     fillCell(cellAddress, element, maxDepth + I + 1);
   }
 };
@@ -648,15 +602,17 @@ const getSheet = async () => {
 
 
 
+//logo setup
+logoMaping()
 
 // getting frequency of devices and sum of A1, A13 ...
 FreqAndSum();
 
 // maping grups , subgruops and meter in excel sheet
-createExcelSheet() // calling  MapParamsForDeviceId from inside
+createExcelSheet(tableContentStart) // calling  MapParamsForDeviceId from inside
 
 // setting dynamic header groups and static header for paramter headers 
- DynamicHeaderSetup();
+ DynamicHeaderSetup(tableContentStart-1);
  
 // excel sheet genrator
 getSheet();
