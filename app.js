@@ -11,7 +11,7 @@ require('dotenv').config({path:"./config/config.env"})
 
 
 
-// connectDB()
+connectDB()
 
 const sheetRouter = require("./Routers/sheetRouter.js");
 const error = require('./middelware/error.js'); 
