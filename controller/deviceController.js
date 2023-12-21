@@ -50,9 +50,9 @@ const ColumnList = [
   "Y",
   "Z",
 ];
- 
-let map = []; 
-     
+
+let map = [];
+
 const data = [
   { id: "D1", text: "Device 1 Demo", t: "d", children: [] },
   { id: "D2", text: "Demo-Device 2", t: "d", children: [] },
@@ -86,7 +86,15 @@ const data = [
   },
 ];
 
-const groupsNsubGroups = [
+const groupsNsubGroups =[
+  {
+    id: "D1",
+    text: "TG Meter",
+    type: "sys",
+    children: [], 
+    depth: 0,
+    maxChildDepth: 0,
+  },
   {
     id: "n1701797057997",
     text: "Power Vision1",
@@ -356,36 +364,33 @@ const fillCell = (address, value) => {
 };
 
 //fulling paramter  into excel sheet called by mapGroup_subGroup
-const MapParamsForDeviceId = async(deviceFreqList, start_col, start_row) => {
+const MapParamsForDeviceId = async (deviceFreqList, start_col, start_row) => {
   let cellAddress = "";
-  let currentCol = start_col ;
+  let currentCol = start_col;
   let currentRow = start_row;
   const comingRow = start_row;
 
   // storing group total
   let totalV1 = 0;
-  let totalV5 = 0;      
-  let totalV13 = 0;         
-  let totalV30 = 0;   
-  
+  let totalV5 = 0;
+  let totalV13 = 0;
+  let totalV30 = 0;
 
   // filling total sum value
   for (let I = 0; I < deviceFreqList.length; I++) {
     const element = deviceFreqList[I];
-    
+
     currentRow = start_row + I;
 
-    if (element.status !="not found") {
-      totalV1 = element.sumA1 + totalV1;     
+    if (element.status != "not found") {
+      totalV1 = element.sumA1 + totalV1;
       totalV5 = element.sumA5 + totalV5;
-      totalV13 = element.sumA13 + totalV13;    
+      totalV13 = element.sumA13 + totalV13;
       totalV30 = element.sumA30 + totalV30;
-    } 
-
-   
+    }
 
     cellAddress = ColumnList[currentCol + 1] + currentRow;
-    console.log(cellAddress,element.sumA1);
+    console.log(cellAddress, element.sumA1);
     await fillCell(cellAddress, element.sumA1);
 
     cellAddress = ColumnList[currentCol + 3] + currentRow;
@@ -395,9 +400,8 @@ const MapParamsForDeviceId = async(deviceFreqList, start_col, start_row) => {
     await fillCell(cellAddress, element.sumA13);
 
     cellAddress = ColumnList[currentCol + 7] + currentRow;
-    await  fillCell(cellAddress, element.sumA30);
+    await fillCell(cellAddress, element.sumA30);
   }
- 
 
   // filling gropu value
   cellAddress = ColumnList[currentCol + 2] + comingRow;
@@ -407,13 +411,13 @@ const MapParamsForDeviceId = async(deviceFreqList, start_col, start_row) => {
   cellAddress = ColumnList[currentCol + 6] + comingRow;
   await fillCell(cellAddress, totalV13);
   cellAddress = ColumnList[currentCol + 8] + comingRow;
- await fillCell(cellAddress, totalV30);
+  await fillCell(cellAddress, totalV30);
 
   //merging cells
   cellAddress = ColumnList[currentCol + 2] + comingRow;
   worksheet.mergeCells([
     `${cellAddress}:${ColumnList[currentCol + 2] + currentRow}`,
-  ]); 
+  ]);
   cellAddress = ColumnList[currentCol + 4] + comingRow;
   worksheet.mergeCells([
     `${cellAddress}:${ColumnList[currentCol + 4] + currentRow}`,
@@ -426,11 +430,9 @@ const MapParamsForDeviceId = async(deviceFreqList, start_col, start_row) => {
   worksheet.mergeCells([
     `${cellAddress}:${ColumnList[currentCol + 8] + currentRow}`,
   ]);
-
-
 };
 
-const idSelector = async() => {
+const idSelector = async () => {
   function getLeafNodesWithTypeD(node) {
     if (node.children && node.children.length > 0) {
       return node.children.reduce(
@@ -453,7 +455,6 @@ const idSelector = async() => {
 
 // getting frequency of devices and sum of A1, A13 ...
 const FreqAndSum = async (ChildesList, currentColumn, currentRow) => {
-
   const getCommand = (id) => {
     return [
       {
@@ -488,29 +489,30 @@ const FreqAndSum = async (ChildesList, currentColumn, currentRow) => {
 
   let subMap = [];
 
-  for (let i = 0; i < (ChildesList.length ); i++) {
+  for (let i = 0; i < ChildesList.length; i++) {
     let result = await analogDataModel.aggregate(getCommand(ChildesList[i].id));
-    console.log("result",result);
-    if (result.length ===0 || !result) {
-      result =[{
-        status:"not found",
-        _id:ChildesList[i].id,
-        sumA1:"No Data",
-        sumA5:"No Data",
-        sumA13:"No Data",
-        sumA30:"No Data",
-      }]
-    }else{
+    console.log("result", result);
+    if (result.length === 0 || !result) {
+      result = [
+        {
+          status: "not found",
+          _id: ChildesList[i].id,
+          sumA1: "No Data",
+          sumA5: "No Data",
+          sumA13: "No Data",
+          sumA30: "No Data",
+        },
+      ];
+    } else {
       result[0]._id = ChildesList[i].id;
     }
-    console.log(result); 
+    console.log(result);
     subMap.push(result[0]);
   }
-  console.log("aggregate ",subMap);
-  await  MapParamsForDeviceId(subMap, currentColumn, currentRow);
- 
+  console.log("aggregate ", subMap);
+  await MapParamsForDeviceId(subMap, currentColumn, currentRow);
 };
-     
+
 const logoMaping = async () => {
   const galanfi = path.resolve(__dirname, "../images/galanfi.png");
   const murgesh = path.resolve(__dirname, "../images/murgesh.png");
@@ -528,11 +530,9 @@ const logoMaping = async () => {
   });
 
   // for murgesh
-  worksheet.mergeCells(0,0,11,3);
+  worksheet.mergeCells(0, 0, 11, 3);
   // for galanfi
-  worksheet.mergeCells(0,8,11,14);
-
-
+  worksheet.mergeCells(0, 8, 11, 14);
 
   worksheet.addImage(galanfiId, {
     tl: { col: 8, row: 3 },
@@ -540,17 +540,17 @@ const logoMaping = async () => {
   });
   worksheet.addImage(murgeshId, {
     tl: { col: 1, row: 1 },
-    ext: { width: 134.55, height: 123.21 }, 
+    ext: { width: 134.55, height: 123.21 },
   });
 };
 
-const createExcelSheet =  async(tableContentStart) => {
+const createExcelSheet = async (tableContentStart) => {
   // row offset of groups or pinters
   let groupOffset_row = tableContentStart; // start without header
   let maxRow = 0;
 
   // recursive fuction for filling from right
-  const fillFromRight =  async(data0, Column) => {
+  const fillFromRight = async (data0, Column) => {
     //updating rows and columns
     let currentColumn = Column + 1;
     let currentRow = groupOffset_row;
@@ -562,27 +562,40 @@ const createExcelSheet =  async(tableContentStart) => {
     //counting max heigth of group to calculate next groups starting row point
     if (data0.children.length === 0) {
       groupOffset_row++;
-    }  
+    }
 
-    if (data0.maxChildDepth === 1) {   
-      console.log("finding aggrgation for ",data0.children);
-       await FreqAndSum(data0.children, currentColumn + 1, currentRow);
+    if (data0.maxChildDepth === 1) {
+      console.log("finding aggrgation for ", data0.children);
+      await FreqAndSum(data0.children, currentColumn + 1, currentRow);
     }
 
     // calling recusion for each subgroup items
     for (let index = 0; index < data0.children.length; index++) {
-      await  fillFromRight(data0.children[index], currentColumn);
+      await fillFromRight(data0.children[index], currentColumn);
     }
 
+
     // current cell address
-    const cellAddress = ColumnList[currentColumn] + currentRow;
+
+    let  cellAddress;
+    if (data0.maxChildDepth ===0&&data0.maxChildDepth ===0) {
+      
+      cellAddress= ColumnList[maxDepth] + currentRow;
+      await FreqAndSum(data0, maxDepth + 1, currentRow);
+    }else{
+      cellAddress= ColumnList[currentColumn] + currentRow;
+
+    }
     const cell = worksheet.getCell(cellAddress); //get cell using address
     cell.value = data0.text; // assign value
 
-    // merging cells
-    worksheet.mergeCells([
-      `${cellAddress}:${ColumnList[currentColumn] + maxRow}`,
-    ]);
+    if (data0.maxChildDepth !=0&&data0.maxChildDepth !=0) {
+      // merging cells
+      worksheet.mergeCells([
+        `${cellAddress}:${ColumnList[currentColumn] + maxRow}`,
+      ]);
+      
+    }
     //center alingment
     cell.alignment = textAlignment;
   };
@@ -594,11 +607,11 @@ const createExcelSheet =  async(tableContentStart) => {
 };
 
 // setting dynamic header groups and static header for paramter headers
-const DynamicHeaderSetup =  async(headerStart) => {
+const DynamicHeaderSetup = async (headerStart) => {
   let cellAddress = "";
 
   // helper func
-  const fillCell =  async(address, value, col) => {
+  const fillCell = async (address, value, col) => {
     worksheet.getColumn(ColumnList[col]).width = 13; //get cell using address
     const cell = worksheet.getCell(address); //get cell using address
     cell.value = value; // assign value
@@ -624,10 +637,14 @@ const DynamicHeaderSetup =  async(headerStart) => {
     } else {
       cell.value = "Sub Group " + (i - 1);
     }
+     
+    if (maxDepth === 1) {
+      cell.value = "Meters";
+    }
   }
 
   //for static paramters
-  const parameterList = [
+  const parameterList = [ 
     "Total KW",
     "Group Total KW",
     "Total KVR",
@@ -644,215 +661,191 @@ const DynamicHeaderSetup =  async(headerStart) => {
   }
 };
 
-const reportDetailsHeader = async()=>{
-  
-  
+const reportDetailsHeader = async () => {
   const data = {
-    name:"NIRANI SUGAR LIMITED",
-    address:"sdfas kl skldfja fklasfasoa  adsdfaso",
-    reportName:"DISTELLARY ENERGY REPORT",
-    details:{
-      DateFrom:"10/9/2023",
-      DateTo:"10/9/2023",
-      Parameter:"Energy",
+    name: "NIRANI SUGAR LIMITED",
+    address: "sdfas kl skldfja fklasfasoa  adsdfaso",
+    reportName: "DISTELLARY ENERGY REPORT",
+    details: {
+      DateFrom: "10/9/2023",
+      DateTo: "10/9/2023",
+      Parameter: "Energy",
     },
-    reportHeadingLine:"abc"
-  }
-  
+    reportHeadingLine: "abc",
+  };
 
   let companyName = worksheet.getCell("D1"); //getcompanyName using address
- companyName.value = data.name;
- companyName.style.font = {
+  companyName.value = data.name;
+  companyName.style.font = {
     color: { argb: "003366" },
     size: 30, // Font color (e.g., black)
-    bold:true
+    bold: true,
   };
- companyName.style.fill = {
+  companyName.style.fill = {
     type: "pattern",
     pattern: "solid",
     fgColor: { argb: "FFFFFF" },
   };
- companyName.style.border = {
-    top: { style: 'thin' },
-    left: { style: 'thin' },
-    bottom: { style: 'thin' },
-    right: { style: 'thin' },
-};
- companyName.alignment =textAlignment; 
-  worksheet.mergeCells(0,4,3,7);
-
+  companyName.style.border = {
+    top: { style: "thin" },
+    left: { style: "thin" },
+    bottom: { style: "thin" },
+    right: { style: "thin" },
+  };
+  companyName.alignment = textAlignment;
+  worksheet.mergeCells(0, 4, 3, 7);
 
   //address
 
-  
-  let companyAddress  = worksheet.getCell("D4"); //get companyAddress using address
+  let companyAddress = worksheet.getCell("D4"); //get companyAddress using address
 
- companyAddress.value = data.address;
- companyAddress.style.font = {
-    color: { argb: "black" }, 
+  companyAddress.value = data.address;
+  companyAddress.style.font = {
+    color: { argb: "black" },
     size: 13, // Font color (e.g., black)
-    bold:true
+    bold: true,
   };
- companyAddress.style.fill = {
+  companyAddress.style.fill = {
     type: "pattern",
     pattern: "solid",
     fgColor: { argb: "FFFFFF" },
   };
- companyAddress.style.border = {
-    top: { style: 'thin' },
-    left: { style: 'thin' },
-    bottom: { style: 'thin' },
-    right: { style: 'thin' },
-};
- companyAddress.alignment =textAlignment; 
-  worksheet.mergeCells(4,4,4,7);
+  companyAddress.style.border = {
+    top: { style: "thin" },
+    left: { style: "thin" },
+    bottom: { style: "thin" },
+    right: { style: "thin" },
+  };
+  companyAddress.alignment = textAlignment;
+  worksheet.mergeCells(4, 4, 4, 7);
 
+  // reportname
 
+  let reportName = worksheet.getCell("D5"); //get reportName using address
 
-
-// reportname 
- 
- let reportName  = worksheet.getCell("D5"); //get reportName using address
-
- reportName.value = data.reportName;
- reportName.style.font = {
-    color: { argb: "048204" }, 
+  reportName.value = data.reportName;
+  reportName.style.font = {
+    color: { argb: "048204" },
     size: 20, // Font color (e.g., black)
-    bold:true
+    bold: true,
   };
- reportName.style.fill = {
+  reportName.style.fill = {
     type: "pattern",
     pattern: "solid",
     fgColor: { argb: "FFFFFF" },
   };
- reportName.style.border = {
-    top: { style: 'thin' },
-    left: { style: 'thin' },
-    bottom: { style: 'thin' },
-    right: { style: 'thin' },
-};
- reportName.alignment =textAlignment; 
-  worksheet.mergeCells(5,4,6,7);
+  reportName.style.border = {
+    top: { style: "thin" },
+    left: { style: "thin" },
+    bottom: { style: "thin" },
+    right: { style: "thin" },
+  };
+  reportName.alignment = textAlignment;
+  worksheet.mergeCells(5, 4, 6, 7);
 
- 
-  let DateFrom  = worksheet.getCell("D7");
-  let DateTo  = worksheet.getCell("D8");
-  let parameter  = worksheet.getCell("D9");
+  let DateFrom = worksheet.getCell("D7");
+  let DateTo = worksheet.getCell("D8");
+  let parameter = worksheet.getCell("D9");
 
-  let DateFromValue  = worksheet.getCell("E7");
-  let DateToValue  = worksheet.getCell("E8");
-  let parameterValue  = worksheet.getCell("E9");
+  let DateFromValue = worksheet.getCell("E7");
+  let DateToValue = worksheet.getCell("E8");
+  let parameterValue = worksheet.getCell("E9");
 
-  const styleMaping =(cell,value)=>{
+  const styleMaping = (cell, value) => {
     cell.value = value;
     cell.style.font = {
-       color: { argb: "3e658b" }, 
-       size: 12, // Font color (e.g., black)
-     };
+      color: { argb: "3e658b" },
+      size: 12, // Font color (e.g., black)
+    };
     cell.style.fill = {
-       type: "pattern",
-       pattern: "solid",
-       fgColor: { argb: "FFFFFF" },
-     };
-    cell.style.border = { 
-       top: { style: 'thin' }, 
-       left: { style: 'thin' },
-       bottom: { style: 'thin' },
-       right: { style: 'thin' },
-   };
-    cell.alignment =textAlignment; 
-  }
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: "FFFFFF" },
+    };
+    cell.style.border = {
+      top: { style: "thin" },
+      left: { style: "thin" },
+      bottom: { style: "thin" },
+      right: { style: "thin" },
+    };
+    cell.alignment = textAlignment;
+  };
 
-  styleMaping(DateFrom,"Date From");
-  styleMaping(DateTo,"Date To");
-  styleMaping(parameter,"parameter");
+  styleMaping(DateFrom, "Date From");
+  styleMaping(DateTo, "Date To");
+  styleMaping(parameter, "parameter");
 
-  styleMaping(DateFromValue,data.details.DateFrom); 
-  styleMaping(DateToValue,data.details.DateTo);
-  styleMaping(parameterValue,data.details.Parameter);
- 
-  worksheet.mergeCells(7,5,7,7); 
-  worksheet.mergeCells(8,5,8,7);
-  worksheet.mergeCells(9,5,9,7);
+  styleMaping(DateFromValue, data.details.DateFrom);
+  styleMaping(DateToValue, data.details.DateTo);
+  styleMaping(parameterValue, data.details.Parameter);
+
+  worksheet.mergeCells(7, 5, 7, 7);
+  worksheet.mergeCells(8, 5, 8, 7);
+  worksheet.mergeCells(9, 5, 9, 7);
 
   //blank space
 
-let blankSpace  = worksheet.getCell("D10"); //get reportName using address
-  
-blankSpace.style.fill = {
+  let blankSpace = worksheet.getCell("D10"); //get reportName using address
+
+  blankSpace.style.fill = {
     type: "pattern",
     pattern: "solid",
     fgColor: { argb: "00ccff" },
   };
-  blankSpace.style.border = { 
-    left: { style: 'thin' },
-    bottom: { style: 'thin' },
-    right: { style: 'thin' },
-};
- 
-  worksheet.mergeCells(10,4,11,7);
+  blankSpace.style.border = {
+    left: { style: "thin" },
+    bottom: { style: "thin" },
+    right: { style: "thin" },
+  };
 
+  worksheet.mergeCells(10, 4, 11, 7);
 
-  //purple line 
+  //purple line
 
-  let purpleLine  = worksheet.getCell("A12"); //get reportName using address
- 
+  let purpleLine = worksheet.getCell("A12"); //get reportName using address
+
   purpleLine.style.fill = {
     type: "pattern",
-    pattern: "solid", 
+    pattern: "solid",
     fgColor: { argb: "333399" },
   };
-  purpleLine.style.border = { 
-    top: { style: 'thin' },
-    left: { style: 'thin' },
-    bottom: { style: 'thin' },
-    right: { style: 'thin' },
-};
- 
-  worksheet.mergeCells(12,0,12,maxDepth+8);
-
- 
-
-
-  //yellow reportHeadingLine 
-
-  let reportHeadingLine  = worksheet.getCell("A13"); 
- 
-  
- reportHeadingLine.value = data.reportHeadingLine;
- reportHeadingLine.style.font = {
-    color: { argb: "black" }, 
-    size: 25, // Font color (e.g., black)
-    bold:true 
+  purpleLine.style.border = {
+    top: { style: "thin" },
+    left: { style: "thin" },
+    bottom: { style: "thin" },
+    right: { style: "thin" },
   };
- reportHeadingLine.style.fill = {
+
+  worksheet.mergeCells(12, 0, 12, maxDepth + 8);
+
+  //yellow reportHeadingLine
+
+  let reportHeadingLine = worksheet.getCell("A13");
+
+  reportHeadingLine.value = data.reportHeadingLine;
+  reportHeadingLine.style.font = {
+    color: { argb: "black" },
+    size: 25, // Font color (e.g., black)
+    bold: true,
+  };
+  reportHeadingLine.style.fill = {
     type: "pattern",
-    pattern: "solid",  
+    pattern: "solid",
     fgColor: { argb: "ffff00" },
   };
- reportHeadingLine.style.border = {
-    top: { style: 'thin' },
-    left: { style: 'thin' },
-    bottom: { style: 'thin' },
-    right: { style: 'thin' },
+  reportHeadingLine.style.border = {
+    top: { style: "thin" },
+    left: { style: "thin" },
+    bottom: { style: "thin" },
+    right: { style: "thin" },
+  };
+  reportHeadingLine.alignment = textAlignment;
+
+  worksheet.mergeCells(13, 0, 15, maxDepth + 8);
 };
- reportHeadingLine.alignment =textAlignment; 
- 
-  worksheet.mergeCells(13,0,15,maxDepth+8);
-
-
-
-
-
-
-
-
-} 
 
 // excel sheet genrator
 const getSheetFile = async () => {
-  
-
   await workbook.xlsx.writeFile(filename);
   console.log(`Excel sheet created and saved as ${filename}`);
 };
@@ -866,13 +859,13 @@ const getSheetFile = async () => {
 // // excel sheet genrator
 // getSheet();
 
- const callme = async ()=>{
+const callme = async () => {
   await idSelector();
   //logo setup
   await logoMaping();
 
   // getting frequency of devices and sum of A1, A13 ...
-  
+
   await createExcelSheet(tableContentStart); // calling  MapParamsForDeviceId from inside
 
   // setting dynamic header groups and static header for paramter headers
@@ -881,11 +874,7 @@ const getSheetFile = async () => {
 
   // excel sheet genrator
   await getSheetFile();
+};
 
- }
-
- callme()
-exports.getSheet = catchAsynch(async (req, res, next) => {
- 
-  
-});
+callme();
+exports.getSheet = catchAsynch(async (req, res, next) => {});
