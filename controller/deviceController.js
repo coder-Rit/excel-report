@@ -86,256 +86,7 @@ const data = [
   },
 ];
 
-const groupsNsubGroups =[
-  {
-    id: "D1",
-    text: "TG Meter",
-    type: "sys",
-    children: [], 
-    depth: 0,
-    maxChildDepth: 0,
-  },
-  {
-    id: "n1701797057997",
-    text: "Power Vision1",
-    children: [
-      {
-        id: "n1701797066456",
-        text: "Power Visoion G1",
-        children: [
-          {
-            id: "n1701797076335",
-            text: "Grid Incomer",
-            children: [
-              {
-                id: "n1701797085464",
-                text: "Main I/C",
-                children: [
-                  {
-                    id: "D1",
-                    text: "TG Meter",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                ],
-                depth: 3,
-                maxChildDepth: 1,
-              },
-            ],
-            depth: 2,
-            maxChildDepth: 2,
-          },
-        ],
-        depth: 1,
-        maxChildDepth: 3,
-      },
-      {
-        id: "n1701797140175",
-        text: "Power Visoion G2",
-        children: [
-          {
-            id: "n1701797160551",
-            text: "Generation",
-            children: [
-              {
-                id: "n1701797169495",
-                text: "Generator",
-                children: [
-                  {
-                    id: "D2",
-                    text: "GRID",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                ],
-                depth: 3,
-                maxChildDepth: 1,
-              },
-            ],
-            depth: 2,
-            maxChildDepth: 2,
-          },
-        ],
-        depth: 1,
-        maxChildDepth: 3,
-      },
-      {
-        id: "n1701797221024",
-        text: "Power Vision G3",
-        children: [
-          {
-            id: "n1701797230112",
-            text: "Bus Coupler",
-            children: [
-              {
-                id: "n1701797235951",
-                text: "B/C",
-                children: [
-                  {
-                    id: "D2",
-                    text: "METER 3",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                  {
-                    id: "D2",
-                    text: "METER 7",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                ],
-                depth: 3,
-                maxChildDepth: 1,
-              },
-            ],
-            depth: 2,
-            maxChildDepth: 2,
-          },
-        ],
-        depth: 1,
-        maxChildDepth: 3,
-      },
-    ],
-    depth: 0,
-    maxChildDepth: 4,
-  },
-  {
-    id: "n1701797302944",
-    text: "Power Vision2",
-    children: [
-      {
-        id: "n1701797315216",
-        text: "Power Vision GA1",
-        children: [
-          {
-            id: "n1701797321575",
-            text: "Auxillary Consump",
-            children: [
-              {
-                id: "n1701797329471",
-                text: "Aux",
-                children: [
-                  {
-                    id: "D2",
-                    text: "METER 4",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                  {
-                    id: "D1",
-                    text: "METER 5",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                ],
-                depth: 3,
-                maxChildDepth: 1,
-              },
-            ],
-            depth: 2,
-            maxChildDepth: 2,
-          },
-        ],
-        depth: 1,
-        maxChildDepth: 3,
-      },
-      {
-        id: "n1701797386122",
-        text: "Power Vision GA3",
-        children: [
-          {
-            id: "n1701797428327",
-            text: "Sinter 1",
-            children: [
-              {
-                id: "n1701797438271",
-                text: "Sinter1 &3",
-                children: [
-                  {
-                    id: "D1",
-                    text: "METER 10",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                ],
-                depth: 3,
-                maxChildDepth: 1,
-              },
-            ],
-            depth: 2,
-            maxChildDepth: 2,
-          },
-        ],
-        depth: 1,
-        maxChildDepth: 3,
-      },
-      {
-        id: "n1701797379424",
-        text: "Power Vision GA2",
-        children: [
-          {
-            id: "n1701797398295",
-            text: "HT Motor",
-            children: [
-              {
-                id: "n1701797406703",
-                text: "Sinter",
-                children: [
-                  {
-                    id: "D2",
-                    text: "METER 6",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                  {
-                    id: "D1",
-                    text: "METER 8",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                  {
-                    id: "D2",
-                    text: "METER 9",
-                    type: "sys",
-                    children: [],
-                    depth: 4,
-                    maxChildDepth: 0,
-                  },
-                ],
-                depth: 3,
-                maxChildDepth: 1,
-              },
-            ],
-            depth: 2,
-            maxChildDepth: 2,
-          },
-        ],
-        depth: 1,
-        maxChildDepth: 3,
-      },
-    ],
-    depth: 0,
-    maxChildDepth: 4,
-  },
-];
+const groupsNsubGroups =[{"id":"D1","text":"SDC STP","t":"d","children":[],"depth":0,"maxChildDepth":0},{"id":"D3","text":" Hydroleap","t":"d","children":[],"depth":0,"maxChildDepth":0},{"id":"D4","text":"Hydroleap_PUB Desalination","t":"d","children":[],"depth":0,"maxChildDepth":0},{"id":"D2","text":"Winstech Seringat","t":"d","children":[],"depth":0,"maxChildDepth":0}]
 
 // fiding max depth of childern
 const findMaxDepth = () => {
@@ -564,38 +315,37 @@ const createExcelSheet = async (tableContentStart) => {
       groupOffset_row++;
     }
 
+
     if (data0.maxChildDepth === 1) {
       console.log("finding aggrgation for ", data0.children);
-      await FreqAndSum(data0.children, currentColumn + 1, currentRow);
+      await FreqAndSum(data0.children, currentColumn+1 , currentRow);
+
+        
+    } 
+    
+    if (data0.maxChildDepth ===0&&data0.depth ===0) {
+       
+      await FreqAndSum([data0], maxDepth , currentRow);
+      const cellAddress = ColumnList[maxDepth] + currentRow;
+      const cell = worksheet.getCell(cellAddress); //get cell using address 
+      cell.value = data0.text;
     }
 
-    // calling recusion for each subgroup items
-    for (let index = 0; index < data0.children.length; index++) {
-      await fillFromRight(data0.children[index], currentColumn);
-    }
+    // calling recusion for each subgroup items  
+    for (let index = 0; index < data0.children.length; index++) { 
+      await fillFromRight(data0.children[index], currentColumn); 
+    } 
 
 
-    // current cell address
+   // current cell address
+   const cellAddress = ColumnList[currentColumn] + currentRow;
+   const cell = worksheet.getCell(cellAddress); //get cell using address
+   cell.value = data0.text; // assign value
 
-    let  cellAddress;
-    if (data0.maxChildDepth ===0&&data0.maxChildDepth ===0) {
-      
-      cellAddress= ColumnList[maxDepth] + currentRow;
-      await FreqAndSum(data0, maxDepth + 1, currentRow);
-    }else{
-      cellAddress= ColumnList[currentColumn] + currentRow;
-
-    }
-    const cell = worksheet.getCell(cellAddress); //get cell using address
-    cell.value = data0.text; // assign value
-
-    if (data0.maxChildDepth !=0&&data0.maxChildDepth !=0) {
-      // merging cells
-      worksheet.mergeCells([
-        `${cellAddress}:${ColumnList[currentColumn] + maxRow}`,
-      ]);
-      
-    }
+   // merging cells
+   worksheet.mergeCells([
+     `${cellAddress}:${ColumnList[currentColumn] + maxRow}`,
+   ]);
     //center alingment
     cell.alignment = textAlignment;
   };
