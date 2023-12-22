@@ -626,5 +626,5 @@ const callme = async () => {
   await getSheetFile();
 };
 
-callme();
-exports.getSheet = catchAsynch(async (req, res, next) => {});
+
+exports.getSheet = catchAsynch(async (req, res, next) => {callme()});
