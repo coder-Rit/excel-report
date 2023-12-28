@@ -51,8 +51,128 @@ const ColumnList = [
   "Y",
   "Z",
 ];
-const headerName =["Particulars","shift1","shift2","shift3","To day","To Month","Till Date",];
+const headerName = [
+  "Particulars",
+  "shift1",
+  "shift2",
+  "shift3",
+  "To day",
+  "To Month",
+  "Till Date",
+];
 const formattedData = [
+  {
+    id: "n1701797057997",
+    text: "Power Vision1",
+    children: [
+      {
+        id: "n1701797066456",
+        text: "Power Visoion G1",
+        children: [
+          {
+            id: "n1701797076335",
+            text: "Grid Incomer",
+            children: [
+              {
+                id: "n1701797085464",
+                text: "Main I/C",
+                children: [
+                  {
+                    id: "D1",
+                    text: "TG Meter",
+                    type: "sys",
+                    children: [],
+                    depth: 4,
+                    maxChildDepth: 0,
+                  },
+                ],
+                depth: 3,
+                maxChildDepth: 1,
+              },
+            ],
+            depth: 2,
+            maxChildDepth: 2,
+          },
+        ],
+        depth: 1,
+        maxChildDepth: 3,
+      },
+      {
+        id: "n1701797140175",
+        text: "Power Visoion G2",
+        children: [
+          {
+            id: "n1701797160551",
+            text: "Generation",
+            children: [
+              {
+                id: "n1701797169495",
+                text: "Generator",
+                children: [
+                  {
+                    id: "D2",
+                    text: "GRID",
+                    type: "sys",
+                    children: [],
+                    depth: 4,
+                    maxChildDepth: 0,
+                  },
+                ],
+                depth: 3,
+                maxChildDepth: 1,
+              },
+            ],
+            depth: 2,
+            maxChildDepth: 2,
+          },
+        ],
+        depth: 1,
+        maxChildDepth: 3,
+      },
+      {
+        id: "n1701797221024",
+        text: "Power Vision G3",
+        children: [
+          {
+            id: "n1701797230112",
+            text: "Bus Coupler",
+            children: [
+              {
+                id: "n1701797235951",
+                text: "B/C",
+                children: [
+                  {
+                    id: "864180050392229",
+                    text: "METER 3",
+                    type: "sys",
+                    children: [],
+                    depth: 4,
+                    maxChildDepth: 0,
+                  },
+                  {
+                    id: "D1",
+                    text: "METER 7",
+                    type: "sys",
+                    children: [],
+                    depth: 4,
+                    maxChildDepth: 0,
+                  },
+                ],
+                depth: 3,
+                maxChildDepth: 1,
+              },
+            ],
+            depth: 2,
+            maxChildDepth: 2,
+          },
+        ],
+        depth: 1,
+        maxChildDepth: 3,
+      },
+    ],
+    depth: 0,
+    maxChildDepth: 4,
+  },
   {
     id: "n1701797057997",
     text: "Power Vision1",
@@ -167,6 +287,7 @@ const formattedData = [
   },
 ];
 var startRow = 1;
+let grpList = [];
 //data for headers
 
 const headerDetails = {
@@ -183,70 +304,79 @@ const headerDetails = {
 
 // common functions
 
-const fillCell = (address, value,center,fill,fontFill,bold,size,tables) => {
+const fillCell = (
+  address,
+  value,
+  center,
+  fill,
+  fontFill,
+  bold,
+  size,
+  tables
+) => {
   const cell = worksheet.getCell(address); //get cell using address
   cell.value = value; // assign value
 
   if (center) {
     cell.alignment = textAlignment;
   }
-  if(fill){
+  if (fill) {
     cell.style.fill = {
       type: "pattern",
       pattern: "solid",
       fgColor: { argb: fill },
     };
-
   }
   if (fontFill) {
     cell.style.font = {
       color: { argb: fontFill },
       size: size, // Font color (e.g., black)
       bold: bold,
-
     };
   }
 
   if (tables) {
-    cell.style.border ={
+    cell.style.border = {
       top: { style: "thin" },
       left: { style: "thin" },
       bottom: { style: "thin" },
       right: { style: "thin" },
-    }
+    };
   }
-  
 };
 
-const mergeArea =(t,l,b,r)=>{ 
-  worksheet.mergeCells(t,l,b,r) 
-
-}
+const mergeArea = (t, l, b, r) => {
+  worksheet.mergeCells(t, l, b, r);
+};
 
 // important functions
 function stylesInitializer() {
   function namePrinter() {
     let address = `${ColumnList[1]}${startRow}`;
     console.log(address);
-    fillCell(address, headerDetails.name,true,"ffc000","ffffff",true,20,true);
-    mergeArea(1,1,2,13)
+    fillCell(
+      address,
+      headerDetails.name,
+      true,
+      "ffc000",
+      "ffffff",
+      true,
+      20,
+      true
+    );
+    mergeArea(1, 1, 2, 14);
     startRow += 2;
   }
 
- 
-
   function headerDetailsPrinter() {
-
     function fillTwinCell(key, value, C_idx, R_idx) {
       let address = `${ColumnList[C_idx]}${R_idx}`;
-      fillCell(address, key,true,"00b050","ffffff",false,10,true);;
-      mergeArea(R_idx,C_idx,R_idx,C_idx+1)
-      
+      fillCell(address, key, true, "00b050", "ffffff", false, 10, true);
+      mergeArea(R_idx, C_idx, R_idx, C_idx + 1);
+
       address = `${ColumnList[C_idx + 2]}${R_idx}`;
-      fillCell(address, value,true,"00b050","ffffff",false,10,true);
-      mergeArea(R_idx,C_idx + 2,R_idx,C_idx + 3)
-      
-  
+      fillCell(address, value, true, "00b050", "ffffff", false, 10, true);
+      mergeArea(R_idx, C_idx + 2, R_idx, C_idx + 3);
     }
 
     const { tillDate, startDate, toMonths, reportDate, startTime } =
@@ -255,7 +385,7 @@ function stylesInitializer() {
     fillTwinCell("Start Date", startDate, 3, 4);
     fillTwinCell("Start Time", startTime, 3, 5);
     fillTwinCell(" ", " ", 3, 6);
-    
+
     fillTwinCell("reportDate", reportDate, 8, 4);
     fillTwinCell("toMonths", toMonths, 8, 5);
     fillTwinCell("tillDate", tillDate, 8, 6);
@@ -267,34 +397,65 @@ function stylesInitializer() {
     let address = `${ColumnList[1]}${startRow}`;
     console.log(address);
 
-    fillCell(address, headerDetails.reportName,true,"ffffff","182361",true,16,true);
-    mergeArea(startRow,1,startRow,13)
-    startRow +=2;
+    fillCell(
+      address,
+      headerDetails.reportName,
+      true,
+      "ffffff",
+      "182361",
+      true,
+      16,
+      true
+    );
+    mergeArea(startRow, 1, startRow, 14);
+    startRow += 2;
   }
+
+  function groupsetup(grpDetails) {}
 
   return {
     namePrinter,
     reportNamePrinter,
     headerDetailsPrinter,
+    groupsetup,
   };
 }
 
-function PowerReportInitializer(date ) {
-   
-
+function PowerReportInitializer(date) {
   var deviceList = [];
   var arr = [];
   var subMap = [];
+  var hepler = [];
 
   function filterLeafNodes(data) {
+    let a = [];
+
     for (let i = 0; i < data.length; i++) {
       if (data[i].maxChildDepth === 0) {
+        a.push({
+          id: data[i].id,
+          text: data[i].text,
+        });
         deviceList.push({
           id: data[i].id,
           text: data[i].text,
         });
       }
       filterLeafNodes(data[i].children);
+    }
+
+    hepler = [...hepler, ...a];
+  }
+
+  function filterData(data) {
+    for (let I = 0; I < data.length; I++) {
+      const element = data[I];
+      filterLeafNodes(element.children);
+      grpList.push({
+        text: element.text,
+        childs: hepler,
+      });
+      hepler = [];
     }
   }
 
@@ -463,143 +624,194 @@ function PowerReportInitializer(date ) {
   async function genrateAggegation() {
     getArrayOfshifts_Helper();
 
-    for (let i = 0; i < deviceList.length; i++) {
-      let newEntrie = [];
+    for (let k = 0; k < grpList.length; k++) {
+      const element1 = grpList[k];
+      let tempsubtem = [];
 
-      for (let J = 0; J < arr.length; J++) {
-        const element = arr[J];
+      for (let i = 0; i < element1.childs.length; i++) {
+        const element2 = element1.childs[i];
+        let newEntrie = [];
 
-        // console.log(deviceList[i].id, element.query);
-        let result = await analogDataModel.aggregate(
-          getPipeLine_Helper(deviceList[i].id, element.query)
-        );
+        for (let J = 0; J < arr.length; J++) {
+          const element = arr[J];
 
-        if (result.length === 0 || !result) {
-          result = [
-            {
-              sumA1: "No Data",
-              shift: element.shift,
-            },
-          ];
-        } else {
-          result[0].shift = element.shift;
+          //  console.log(element2, element.query);
+          let result = await analogDataModel.aggregate(
+            getPipeLine_Helper(element2.id, element.query)
+          );
+          // console.log(result);
+
+          if (result.length === 0 || !result) {
+            result = [
+              {
+                sumA1: "No Data",
+                shift: element.shift,
+              },
+            ];
+          } else {
+            result[0].shift = element.shift;
+          }
+          delete result[0]._id;
+
+          newEntrie.push(result[0]);
         }
-        delete result[0]._id;
-        newEntrie.push(result[0]);
+
+        // console.log(element2);
+        const entrie = {
+          id: element2.id,
+          paritcular: element2.text,
+          subMap: newEntrie,
+        };
+        tempsubtem.push(entrie);
       }
 
-      // console.log(newEntrie);
-
       const entrie = {
-        paritcular: deviceList[i].text,
-        id: deviceList[i].id,
-        shift: newEntrie,
+        grp: element1.text,
+        shifts: tempsubtem,
       };
       subMap.push(entrie);
     }
   }
 
-  function fillHeader( ) {
-
-    function fillHeader_helper(value, C_idx_H,R_idx_H) {
+  function fillHeader() {
+    function fillHeader_helper(value, C_idx_H, R_idx_H) {
       address = `${ColumnList[C_idx_H + 1]}${R_idx_H}`;
-      fillCell(address, value,true,"ffff00","black",true,10,true);
-    } 
-    let colm = 1
+      fillCell(address, value, true, "ffff00", "black", true, 10, true);
+    }
 
-    fillHeader_helper(headerName[0],0,startRow)
-       mergeArea(12,0,12,0)
+    fillHeader_helper(headerName[0], 0, startRow);
+    console.log(startRow, 1, startRow + 2, 2);
+    mergeArea(startRow, 1, startRow + 2, 2);
+    let colm = 2;
 
     for (let i = 1; i < headerName.length; i++) {
-        fillHeader_helper(headerName[i],colm,startRow)
-        mergeArea(startRow,colm-1,startRow+1,colm)
-        fillHeader_helper("KWH",colm,startRow+2)
-        fillHeader_helper("MW",colm+1,startRow+2)
-        colm += 2;
-      }
-      //last remaing cell
-      mergeArea(startRow,colm-1,startRow+1,colm)
-    
+      fillHeader_helper(headerName[i], colm, startRow);
+      console.log(startRow, colm + 1, startRow + 1, colm + 2);
+      mergeArea(startRow, colm + 1, startRow + 1, colm + 2);
+      fillHeader_helper("KWH", colm, startRow + 2);
+      fillHeader_helper("MW", colm + 1, startRow + 2);
+      colm += 2;
+    }
+
     startRow += 2;
-
-
+ 
   }
 
   function mapDataToExcle() {
-    for (let i = 0; i < subMap.length; i++) {
-      const element = subMap[i];
+    console.log("720", subMap[1]);
 
-      //paricatular fill
-      let address = `${ColumnList[1]}:${i + 1 + startRow}`;
-      fillCell(address, element.paritcular, false,"","",false,12,true);
+    for (let k = 0; k < subMap.length; k++) {
+      const element2 = subMap[k];
 
-      // shifts fill
+      let totalArray =[0,0,0,0,0,0]
+      
 
-      const currentShift = element.shift;
-      let colNumber = 2;
-      let dayTotal = 0;
-      let onceUserd = false
-      for (let j = 0; j < currentShift.length; j++) {
-        const shiftData = currentShift[j];
+      let grpAdds = `${ColumnList[1]}${startRow + 1}`;
+      const cellA1 = worksheet.getCell(grpAdds);
+      cellA1.value = element2.grp;
+      cellA1.alignment = {
+        textRotation: 90,
+        horizontal: "center",
+        vertical: "middle",
+      };
+      cellA1.style.font = {
+        color: { argb: "black" },
+        size: 10, // Font color (e.g., black)
+        bold: true,
+      };
+      mergeArea(startRow + 1, 0, startRow + element2.shifts.length + 1, 0);
 
-        if (j <= 2) {
-          dayTotal += shiftData.sumA1;
-        }
+      for (let i = 0; i < element2.shifts.length; i++) {
+        const { subMap, paritcular, id } = element2.shifts[i];
 
-        // for day total
+        //paricatular fill
+        let address = `${ColumnList[2]}:${i + 1 + startRow}`;
+        fillCell(address, paritcular, false, "", "", false, 12, true);
 
-        if(j<=2) {
-          // for KWh
+        // shifts fill
+
+        const currentShift = subMap;
+        let colNumber = 3;
+        let dayTotal = 0;
+        let onceUserd = false;
+       let  shiftCount = 0;
+        function valueCellFiller(value, innerFill) {
           const KWhaddress = `${ColumnList[colNumber]}:${i + 1 + startRow}`;
-          fillCell(KWhaddress, Math.round(shiftData.sumA1),true,"ddd9c3","black",false,12,true);
+          
+          
+          totalArray[shiftCount] +=Math.round(value)
+          shiftCount++
+          fillCell(
+            KWhaddress,
+            Math.round(value),
+            true,
+            innerFill,
+            "black",
+            false,
+            12,
+            true
+          );
           colNumber++;
 
           //for MW
           const MWaddress = `${ColumnList[colNumber]}:${i + 1 + startRow}`;
-          fillCell(MWaddress, Math.round(shiftData.sumA1 / 1000),true,"ddd9c3","black",false,12,true);
+          fillCell(
+            MWaddress,
+            Math.round(value / 1000),
+            true,
+            innerFill,
+            "black",
+            false,
+            12,
+            true
+          );
           colNumber++;
         }
-        else if (j === 3 && !onceUserd) {
-          onceUserd = true;
-          // for KWh
-          const KWhaddress = `${ColumnList[colNumber]}:${i + 1 + startRow}`;
-          fillCell(KWhaddress, Math.round(dayTotal),true,"8eb4e3","black",false,12,true);
-          colNumber++;
 
-          //for MW
-          const MWaddress = `${ColumnList[colNumber]}:${i + 1 + startRow}`;
-          fillCell(MWaddress, Math.round(dayTotal / 1000),true,"8eb4e3","black",false,12,true);
-          colNumber++;
-          j--;
+        for (let j = 0; j < currentShift.length; j++) {
+          const shiftData = currentShift[j];
 
-          // for other cases
-        }
-        else if(j===4){
-          // for KWh
-          const KWhaddress = `${ColumnList[colNumber]}:${i + 1 + startRow}`;
-          fillCell(KWhaddress, Math.round(shiftData.sumA1),true,"e6b9b8","black",false,12,true);
-          colNumber++;
+          if (j <= 2) {
+            dayTotal += shiftData.sumA1;
+          }
 
-          //for MW
-          const MWaddress = `${ColumnList[colNumber]}:${i + 1 + startRow}`;
-          fillCell(MWaddress, Math.round(shiftData.sumA1 / 1000),true,"e6b9b8","black",false,12,true);
-          colNumber++;
+          // for day total
 
-        }else{
-           // for KWh
-           const KWhaddress = `${ColumnList[colNumber]}:${i + 1 + startRow}`;
-           fillCell(KWhaddress, Math.round(shiftData.sumA1),true,"d7e4bd","black",false,12,true);
-           colNumber++;
- 
-           //for MW
-           const MWaddress = `${ColumnList[colNumber]}:${i + 1 + startRow}`;
-           fillCell(MWaddress, Math.round(shiftData.sumA1 / 1000),true,"d7e4bd","black",false,12,true);
-           colNumber++;
+          if (j <= 2) {
+            valueCellFiller(shiftData.sumA1, "ddd9c3");
+            
+            if (j === 2) {
+              valueCellFiller(dayTotal, "8eb4e3");
+            }
+          } else if (j === 3) {
+            valueCellFiller(shiftData.sumA1, "e6b9b8");
+          } else {
+            valueCellFiller(shiftData.sumA1, "d7e4bd");
+          }
         }
       }
+      
+      startRow += element2.shifts.length+1;
 
+
+      let colCount =2
+      let address = `${ColumnList[colCount]}:${startRow}`;
+      fillCell(address, "Total", false, "92d050", "", false, 12, true);
+      colCount++;
+      for (let i = 0; i < totalArray.length; i++) {
+        const element = totalArray[i];
+         address = `${ColumnList[colCount]}:${startRow}`;
+        fillCell(address, element, false, "92d050", "", false, 12, true);
+        colCount++
+          address = `${ColumnList[colCount]}:${startRow}`;
+        fillCell(address, (element/1000), false, "92d050", "", false, 12, true);
+        colCount++
+       } 
+
+
+     
     }
-  } 
+  }
 
   function saveFile() {
     workbook.xlsx
@@ -619,12 +831,12 @@ function PowerReportInitializer(date ) {
   }
 
   return {
-    filterLeafNodes,
+    filterData,
     genrateAggegation,
     mapDataToExcle,
     saveFile,
     sendFileInRes,
-    fillHeader
+    fillHeader,
   };
 }
 
@@ -636,7 +848,8 @@ exports.getEReport = catchAsynch(async (req, res, next) => {
 
   const Report = PowerReportInitializer("Sat, 12 Aug 2023", 2);
 
-  Report.filterLeafNodes(formattedData);
+  Report.filterData(formattedData);
+
   await Report.genrateAggegation();
   Report.fillHeader();
   Report.mapDataToExcle();
