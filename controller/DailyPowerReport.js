@@ -52,13 +52,13 @@ const ColumnList = [
   "Z",
 ];
 const headerName = [
-  "Particulars",
-  "shift1",
-  "shift2",
-  "shift3",
-  "To day",
-  "To Month",
-  "Till Date",
+  ["Particulars"],
+  ["shift 1", " 06:00-14:00"],
+  ["shift 2", " 14:00-22:00"],
+  ["shift 3", " 22:00-06:00"],
+  ["To day"],
+  ["To Month"],
+  ["Till Date"],
 ];
 const formattedData = [
   {
@@ -312,7 +312,7 @@ const fillCell = (
   fontFill,
   bold,
   size,
-  tables
+  tablesArr
 ) => {
   const cell = worksheet.getCell(address); //get cell using address
   cell.value = value; // assign value
@@ -335,12 +335,12 @@ const fillCell = (
     };
   }
 
-  if (tables) {
+  if (tablesArr) {
     cell.style.border = {
-      top: { style: "thin" },
-      left: { style: "thin" },
-      bottom: { style: "thin" },
-      right: { style: "thin" },
+      top: tablesArr[0] ? { style: "thin" } : {},
+      left: tablesArr[1] ? { style: "thin" } : {},
+      bottom: tablesArr[2] ? { style: "thin" } : {},
+      right: tablesArr[3] ? { style: "thin" } : {},
     };
   }
 };
@@ -354,16 +354,12 @@ function stylesInitializer() {
   function namePrinter() {
     let address = `${ColumnList[1]}${startRow}`;
     console.log(address);
-    fillCell(
-      address,
-      headerDetails.name,
+    fillCell(address, headerDetails.name, true, "ffc000", "ffffff", true, 20, [
       true,
-      "ffc000",
-      "ffffff",
       true,
-      20,
-      true
-    );
+      true,
+      true,
+    ]);
     mergeArea(1, 1, 2, 14);
     startRow += 2;
   }
@@ -371,11 +367,21 @@ function stylesInitializer() {
   function headerDetailsPrinter() {
     function fillTwinCell(key, value, C_idx, R_idx) {
       let address = `${ColumnList[C_idx]}${R_idx}`;
-      fillCell(address, key, true, "00b050", "ffffff", false, 10, true);
+      fillCell(address, key, true, "00b050", "ffffff", false, 10, [
+        true,
+        true,
+        true,
+        true,
+      ]);
       mergeArea(R_idx, C_idx, R_idx, C_idx + 1);
 
       address = `${ColumnList[C_idx + 2]}${R_idx}`;
-      fillCell(address, value, true, "00b050", "ffffff", false, 10, true);
+      fillCell(address, value, true, "00b050", "ffffff", false, 10, [
+        true,
+        true,
+        true,
+        true,
+      ]);
       mergeArea(R_idx, C_idx + 2, R_idx, C_idx + 3);
     }
 
@@ -405,7 +411,7 @@ function stylesInitializer() {
       "182361",
       true,
       16,
-      true
+      [true, true, true, true]
     );
     mergeArea(startRow, 1, startRow, 14);
     startRow += 2;
@@ -674,27 +680,52 @@ function PowerReportInitializer(date) {
   }
 
   function fillHeader() {
-    function fillHeader_helper(value, C_idx_H, R_idx_H) {
+    function fillHeader_helper(value, C_idx_H, R_idx_H, border) {
       address = `${ColumnList[C_idx_H + 1]}${R_idx_H}`;
-      fillCell(address, value, true, "ffff00", "black", true, 10, true);
+      fillCell(address, value, true, "ffff00", "black", true, 10, border);
     }
 
-    fillHeader_helper(headerName[0], 0, startRow);
+    fillHeader_helper(headerName[0][0], 0, startRow,[
+      true,
+      true,
+      true,
+      true,
+    ]);
     console.log(startRow, 1, startRow + 2, 2);
     mergeArea(startRow, 1, startRow + 2, 2);
     let colm = 2;
 
     for (let i = 1; i < headerName.length; i++) {
-      fillHeader_helper(headerName[i], colm, startRow);
-      console.log(startRow, colm + 1, startRow + 1, colm + 2);
-      mergeArea(startRow, colm + 1, startRow + 1, colm + 2);
-      fillHeader_helper("KWH", colm, startRow + 2);
-      fillHeader_helper("MW", colm + 1, startRow + 2);
+      if (i === 1 || i === 2 || i === 3) {
+        fillHeader_helper(headerName[i][0], colm, startRow, [
+          true,
+          true,
+          false,
+          true,
+        ]);
+        mergeArea(startRow, colm + 1, startRow, colm + 2);
+        fillHeader_helper(headerName[i][1], colm, startRow + 1, [
+          false,
+          true,
+          true,
+          true,
+        ]);
+        mergeArea(startRow + 1, colm + 1, startRow + 1, colm + 2);
+      } else {
+        fillHeader_helper(headerName[i][0], colm, startRow, [
+          true,
+          true,
+          true,
+          true,
+        ]);
+        mergeArea(startRow, colm + 1, startRow + 1, colm + 2);
+      }
+      fillHeader_helper("KWH", colm, startRow + 2, [true, true, true, true]);
+      fillHeader_helper("MW", colm + 1, startRow + 2, [true, true, true, true]);
       colm += 2;
     }
 
     startRow += 2;
- 
   }
 
   function mapDataToExcle() {
@@ -703,8 +734,7 @@ function PowerReportInitializer(date) {
     for (let k = 0; k < subMap.length; k++) {
       const element2 = subMap[k];
 
-      let totalArray =[0,0,0,0,0,0]
-      
+      let totalArray = [0, 0, 0, 0, 0, 0];
 
       let grpAdds = `${ColumnList[1]}${startRow + 1}`;
       const cellA1 = worksheet.getCell(grpAdds);
@@ -719,6 +749,12 @@ function PowerReportInitializer(date) {
         size: 10, // Font color (e.g., black)
         bold: true,
       };
+      cellA1.style.border = {
+        top: { style: "thin" } ,
+        left: { style: "thin" } ,
+        bottom: { style: "thin" } ,
+        right: { style: "thin" } ,
+      };
       mergeArea(startRow + 1, 0, startRow + element2.shifts.length + 1, 0);
 
       for (let i = 0; i < element2.shifts.length; i++) {
@@ -726,7 +762,12 @@ function PowerReportInitializer(date) {
 
         //paricatular fill
         let address = `${ColumnList[2]}:${i + 1 + startRow}`;
-        fillCell(address, paritcular, false, "", "", false, 12, true);
+        fillCell(address, paritcular, false, "", "", false, 12, [
+          true,
+          true,
+          true,
+          true,
+        ]);
 
         // shifts fill
 
@@ -734,13 +775,12 @@ function PowerReportInitializer(date) {
         let colNumber = 3;
         let dayTotal = 0;
         let onceUserd = false;
-       let  shiftCount = 0;
+        let shiftCount = 0;
         function valueCellFiller(value, innerFill) {
           const KWhaddress = `${ColumnList[colNumber]}:${i + 1 + startRow}`;
-          
-          
-          totalArray[shiftCount] +=Math.round(value)
-          shiftCount++
+
+          totalArray[shiftCount] += Math.round(value);
+          shiftCount++;
           fillCell(
             KWhaddress,
             Math.round(value),
@@ -749,7 +789,7 @@ function PowerReportInitializer(date) {
             "black",
             false,
             12,
-            true
+            [true, true, true, true]
           );
           colNumber++;
 
@@ -763,7 +803,7 @@ function PowerReportInitializer(date) {
             "black",
             false,
             12,
-            true
+            [true, true, true, true]
           );
           colNumber++;
         }
@@ -779,7 +819,7 @@ function PowerReportInitializer(date) {
 
           if (j <= 2) {
             valueCellFiller(shiftData.sumA1, "ddd9c3");
-            
+
             if (j === 2) {
               valueCellFiller(dayTotal, "8eb4e3");
             }
@@ -790,26 +830,37 @@ function PowerReportInitializer(date) {
           }
         }
       }
-      
-      startRow += element2.shifts.length+1;
 
+      startRow += element2.shifts.length + 1;
 
-      let colCount =2
+      let colCount = 2;
       let address = `${ColumnList[colCount]}:${startRow}`;
-      fillCell(address, "Total", false, "92d050", "", false, 12, true);
+      fillCell(address, "Total", false, "92d050", "", false, 12, [
+        true,
+        true,
+        true,
+        true,
+      ]);
       colCount++;
       for (let i = 0; i < totalArray.length; i++) {
         const element = totalArray[i];
-         address = `${ColumnList[colCount]}:${startRow}`;
-        fillCell(address, element, false, "92d050", "", false, 12, true);
-        colCount++
-          address = `${ColumnList[colCount]}:${startRow}`;
-        fillCell(address, (element/1000), false, "92d050", "", false, 12, true);
-        colCount++
-       } 
-
-
-     
+        address = `${ColumnList[colCount]}:${startRow}`;
+        fillCell(address, element, false, "92d050", "", false, 12, [
+          true,
+          true,
+          true,
+          true,
+        ]);
+        colCount++;
+        address = `${ColumnList[colCount]}:${startRow}`;
+        fillCell(address, element / 1000, false, "92d050", "", false, 12, [
+          true,
+          true,
+          true,
+          true,
+        ]);
+        colCount++;
+      }
     }
   }
 
