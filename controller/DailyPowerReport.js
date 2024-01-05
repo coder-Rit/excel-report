@@ -6,18 +6,6 @@ const workbook = new ExcelJS.Workbook();
 const worksheet = workbook.addWorksheet("Sheet 1");
 const filename = "energyReport.xlsx";
 
-const headerFill = {
-  type: "pattern",
-  pattern: "solid",
-  fgColor: { argb: "305496" },
-};
-const headerFont = {
-  color: { argb: "FFFFFF" },
-  size: 14, // Font color (e.g., black)
-};
-const FontBoldness = {
-  bold: true,
-};
 const textAlignment = {
   horizontal: "center",
   vertical: "middle",
@@ -438,13 +426,16 @@ function PowerReportInitializer(date) {
 
     for (let i = 0; i < data.length; i++) {
       if (data[i].maxChildDepth === 0) {
+
+        
+
         a.push({
           id: data[i].id,
           text: data[i].text,
         });
         deviceList.push({
           id: data[i].id,
-          text: data[i].text,
+          text: data[i].text,   
         });
       }
       filterLeafNodes(data[i].children);
@@ -685,12 +676,7 @@ function PowerReportInitializer(date) {
       fillCell(address, value, true, "ffff00", "black", true, 10, border);
     }
 
-    fillHeader_helper(headerName[0][0], 0, startRow,[
-      true,
-      true,
-      true,
-      true,
-    ]);
+    fillHeader_helper(headerName[0][0], 0, startRow, [true, true, true, true]);
     console.log(startRow, 1, startRow + 2, 2);
     mergeArea(startRow, 1, startRow + 2, 2);
     let colm = 2;
@@ -750,10 +736,10 @@ function PowerReportInitializer(date) {
         bold: true,
       };
       cellA1.style.border = {
-        top: { style: "thin" } ,
-        left: { style: "thin" } ,
-        bottom: { style: "thin" } ,
-        right: { style: "thin" } ,
+        top: { style: "thin" },
+        left: { style: "thin" },
+        bottom: { style: "thin" },
+        right: { style: "thin" },
       };
       mergeArea(startRow + 1, 0, startRow + element2.shifts.length + 1, 0);
 
@@ -835,7 +821,7 @@ function PowerReportInitializer(date) {
 
       let colCount = 2;
       let address = `${ColumnList[colCount]}:${startRow}`;
-      fillCell(address, "Total", false, "92d050", "", false, 12, [
+      fillCell(address, "Total", true, "92d050", "", false, 12, [
         true,
         true,
         true,
@@ -845,7 +831,7 @@ function PowerReportInitializer(date) {
       for (let i = 0; i < totalArray.length; i++) {
         const element = totalArray[i];
         address = `${ColumnList[colCount]}:${startRow}`;
-        fillCell(address, element, false, "92d050", "", false, 12, [
+        fillCell(address, element, true, "92d050", "", false, 12, [
           true,
           true,
           true,
@@ -853,7 +839,7 @@ function PowerReportInitializer(date) {
         ]);
         colCount++;
         address = `${ColumnList[colCount]}:${startRow}`;
-        fillCell(address, element / 1000, false, "92d050", "", false, 12, [
+        fillCell(address, element / 1000, true, "92d050", "", false, 12, [
           true,
           true,
           true,

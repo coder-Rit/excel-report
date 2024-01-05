@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const catchAsynch = require("../middelware/catchAsynch");
 const analogDataModel = require("../models/analogDataModel");
+const deviceModel = require("../models/deviceModel");
 
 const headerFill = {
   type: "pattern",
@@ -86,7 +87,40 @@ const data = [
   },
 ];
 
-const groupsNsubGroups =[{"id":"D1","text":"SDC STP","t":"d","children":[],"depth":0,"maxChildDepth":0},{"id":"D3","text":" Hydroleap","t":"d","children":[],"depth":0,"maxChildDepth":0},{"id":"D4","text":"Hydroleap_PUB Desalination","t":"d","children":[],"depth":0,"maxChildDepth":0},{"id":"D2","text":"Winstech Seringat","t":"d","children":[],"depth":0,"maxChildDepth":0}]
+const groupsNsubGroups = [
+  {
+    id: "860987057798875_1",
+    text: "SDC STP",
+    t: "d",
+    children: [],
+    depth: 0,
+    maxChildDepth: 0,
+  },
+  {
+    id: "860987057798875_2",
+    text: " Hydroleap",
+    t: "d",
+    children: [],
+    depth: 0,
+    maxChildDepth: 0,
+  },
+  {
+    id: "860987057798875_3",
+    text: "Hydroleap_PUB Desalination",
+    t: "d",
+    children: [],
+    depth: 0,
+    maxChildDepth: 0,
+  },
+  {
+    id: "860987057798875_5",
+    text: "Winstech Seringat",
+    t: "d",
+    children: [],
+    depth: 0,
+    maxChildDepth: 0,
+  },
+];
 
 // fiding max depth of childern
 const findMaxDepth = () => {
@@ -141,7 +175,6 @@ const MapParamsForDeviceId = async (deviceFreqList, start_col, start_row) => {
     }
 
     cellAddress = ColumnList[currentCol + 1] + currentRow;
-    console.log(cellAddress, element.sumA1);
     await fillCell(cellAddress, element.sumA1);
 
     cellAddress = ColumnList[currentCol + 3] + currentRow;
@@ -242,7 +275,6 @@ const FreqAndSum = async (ChildesList, currentColumn, currentRow) => {
 
   for (let i = 0; i < ChildesList.length; i++) {
     let result = await analogDataModel.aggregate(getCommand(ChildesList[i].id));
-    console.log("result", result);
     if (result.length === 0 || !result) {
       result = [
         {
@@ -257,10 +289,8 @@ const FreqAndSum = async (ChildesList, currentColumn, currentRow) => {
     } else {
       result[0]._id = ChildesList[i].id;
     }
-    console.log(result);
     subMap.push(result[0]);
   }
-  console.log("aggregate ", subMap);
   await MapParamsForDeviceId(subMap, currentColumn, currentRow);
 };
 
@@ -315,37 +345,38 @@ const createExcelSheet = async (tableContentStart) => {
       groupOffset_row++;
     }
 
-
     if (data0.maxChildDepth === 1) {
-      console.log("finding aggrgation for ", data0.children);
-      await FreqAndSum(data0.children, currentColumn+1 , currentRow);
-
-        
-    } 
-    
-    if (data0.maxChildDepth ===0&&data0.depth ===0) {
-       
-      await FreqAndSum([data0], maxDepth , currentRow);
-      const cellAddress = ColumnList[maxDepth] + currentRow;
-      const cell = worksheet.getCell(cellAddress); //get cell using address 
-      cell.value = data0.text;
+      await FreqAndSum(data0.children, currentColumn + 1, currentRow);
     }
 
-    // calling recusion for each subgroup items  
-    for (let index = 0; index < data0.children.length; index++) { 
-      await fillFromRight(data0.children[index], currentColumn); 
-    } 
+    // new Change
+    if (data0.maxChildDepth === 0 && data0.depth === 0) {
+      await FreqAndSum([data0], maxDepth, currentRow);
+      const deviceDetails = await deviceModel.findOne({ deviceId: data0.id });
+      const cellAddress = ColumnList[maxDepth] + currentRow;
+      const cell = worksheet.getCell(cellAddress); //get cell using address
+      cell.value = deviceDetails.machineName;
+    }
 
+    // calling recusion for each subgroup items
+    for (let index = 0; index < data0.children.length; index++) {
+      await fillFromRight(data0.children[index], currentColumn);
+    }
 
-   // current cell address
-   const cellAddress = ColumnList[currentColumn] + currentRow;
-   const cell = worksheet.getCell(cellAddress); //get cell using address
-   cell.value = data0.text; // assign value
+    // current cell address
 
-   // merging cells
-   worksheet.mergeCells([
-     `${cellAddress}:${ColumnList[currentColumn] + maxRow}`,
-   ]);
+    const cellAddress = ColumnList[currentColumn] + currentRow;
+    const cell = worksheet.getCell(cellAddress); //get cell using address
+
+     // new Change
+    if (data0.maxChildDepth !== 0 || data0.depth !== 0) {
+      cell.value = data0.text; // assign value
+    }
+
+    // merging cells
+    worksheet.mergeCells([
+      `${cellAddress}:${ColumnList[currentColumn] + maxRow}`,
+    ]);
     //center alingment
     cell.alignment = textAlignment;
   };
@@ -387,14 +418,14 @@ const DynamicHeaderSetup = async (headerStart) => {
     } else {
       cell.value = "Sub Group " + (i - 1);
     }
-     
+
     if (maxDepth === 1) {
       cell.value = "Meters";
     }
   }
 
   //for static paramters
-  const parameterList = [ 
+  const parameterList = [
     "Total KW",
     "Group Total KW",
     "Total KVR",
@@ -626,5 +657,6 @@ const callme = async () => {
   await getSheetFile();
 };
 
-
-exports.getSheet = catchAsynch(async (req, res, next) => {callme()});
+exports.getSheet = catchAsynch(async (req, res, next) => {
+  callme();
+});
