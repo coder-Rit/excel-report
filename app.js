@@ -15,6 +15,7 @@ connectDB()
 
 const sheetRouter = require("./Routers/sheetRouter.js");
 const fileRouter = require("./Routers/fileRouter.js");
+const exportDataRouter = require("./Routers/exportDataRouter.js");
  const error = require('./middelware/error.js'); 
 
 
@@ -22,6 +23,7 @@ app.use(cors())
 
 app.use('/api/v1',sheetRouter)
 app.use('/api/v1',fileRouter)
+app.use('/api/v1',exportDataRouter)
 // app.use('',sheetRouter)
 
 

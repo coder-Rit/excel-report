@@ -3,6 +3,7 @@ images
 analogdatas.json
 report.json
 tank-LT05.txt
+^AnalogJSON_\d{4}\.json$
 
 
 # Logs
